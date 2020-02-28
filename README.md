@@ -1,2 +1,2 @@
 # daily
-暂留
+snippets && demo
