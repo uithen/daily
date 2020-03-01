@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css计数器动态展示</title>
+    <style>
+        ul {counter-reset: selected;}
+        input:checked {counter-increment: selected;}
+        strong::before {content: counter(selected); color: #f00;}
+        label {cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h3>课程选择</h3>
+    <ul>
+        <li><label for="course1"><input type="checkbox" id="course1">页面制作</label></li>
+        <li><label for="course2"><input type="checkbox" id="course2">JS程序设计</label></li>
+        <li><label for="course3"><input type="checkbox" id="course3">DOM编程</label></li>
+        <li><label for="course4"><input type="checkbox" id="course4">页面架构</label></li>
+        <li><label for="course5"><input type="checkbox" id="course5">产品前端架构</label></li>
+        <li><label for="course6"><input type="checkbox" id="course6">项目实战</label></li>
+    </ul>
+    <p>您选择了 <strong></strong> 门课程</p>
+</body>
+</html>

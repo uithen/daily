@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css计数器-Counters生成嵌套目录</title>
+    <style>
+        ul {counter-reset: counters; list-style: none;}
+        ul li:before {content: counters(counters, ".") "."; counter-increment: counters;}
+    </style>
+</head>
+<body>
+    <h3>Counters生成嵌套目录</h3>
+    <ul>
+        <li>
+            一级目录
+            <ul>
+                <li> 二级目录</li>
+                <li> 二级目录</li>
+                <li> 二级目录</li>
+            </ul>
+        </li>
+        <li> 一级目录</li>
+        <li>
+            一级目录
+            <ul>
+                <li>
+                    二级目录
+                </li>
+                <li>
+                    二级目录
+                    <ul>
+                        <li> 三级目录</li>
+                        <li> 三级目录</li>
+                        <li> 三级目录</li>
+                        <li> 三级目录</li>
+                        <li> 三级目录</li>
+                        <li> 三级目录</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li> 一级目录</li>
+        <li> 一级目录</li>
+    </ul>
+</body>
+</html>

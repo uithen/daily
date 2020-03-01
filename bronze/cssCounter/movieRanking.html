@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS计数器-2019华语电影TOP5</title>
+    <style>
+        li {list-style: none;}
+        a {text-decoration: none; padding-left: 10px; color: #333; font-weight: bold;}
+        a:hover {color: #f00;}
+        h2 {
+            margin-left: 35px;
+        }
+        hr {width: 270px; margin: 20px 0; border: 0; border-top: 1px dashed #ddd;}
+        hr:first-of-type {border-top: 2px solid #ddd;}
+        .rank .item:before {color: #333;}
+        
+        /* 创建一个名为rank的计数器,默认值为0 */
+        .rank {counter-reset: rank;}
+        /* 计数器自增量为默认值1,在每个li标签前面计数 */
+        .rank li:before {content: counter(rank); counter-increment: rank; color: #f00; font-weight: bold;}
+
+    </style>
+</head>
+<body>
+    <h2>2019华语电影TOP5</h2>
+    <ol class="rank">
+        <hr>
+        <li><a href="#">哪吒之魔童降世</a></li>
+        <hr>
+        <li><a href="#">少年的你</a></li>
+        <hr>
+        <li><a href="#">谁先爱上他的</a></li>
+        <hr>
+        <li class="item"><a href="#">流浪地球</a></li>
+        <hr>
+        <li class="item"><a href="#">罗小黑战记</a></li>
+    </ol>
+</body>
+</html>
