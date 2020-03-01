@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字超出部分省略</title>
+    <style>
+        div {
+            width: 262px;
+            font: bold 17px "宋体";
+            line-height: 26px;
+        }
+        /* 单行文字溢出省略 */
+        .row {
+            /* 强制一行 */
+            white-space: nowrap;
+            /* 溢出部分内容隐藏 */
+            overflow: hidden;
+            /* 省略号代替溢出部分 */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">单行文字溢出省略单行文字溢出省略</div>
+</body>
+</html>
