@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        /* table  */
+        form {
+            display: table;
+            margin: 20px auto;
+            font: 16px "Microsoft Yahei";
+        }
+        /* tr */
+        .tr {
+            display: table-row;
+        }
+        /* td  */
+        .td,
+        .td+span {
+            display: table-cell;
+            padding: 17px;
+            vertical-align: top;
+        }
+        /* resize textarea  */
+        textarea {
+            width: 262px;
+            height: 127px;
+            resize: none;
+            overflow: auto;
+        }
+        button {
+            width: 127px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 26px;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+            background: #abcdef;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="tr">
+            <label for="pic" class="td">头像</label>
+            <span><input type="file" name="" id="pic" multiple></span>
+        </div>
+        <div class="tr">
+            <label for="us" class="td">昵称</label>
+            <span><input type="text"></span>
+        </div>
+        <div class="tr">
+            <label for="edu" class="td">学历</label>
+            <span>
+                <select name="edu" id="edu">
+                    <option value="bk">本科</option>
+                    <option value="dz" selected>大专</option>
+                </select>
+            </span>
+        </div>
+        <div class="tr">
+            <span class="td">性别</span>
+            <span>
+                <input type="radio" name="sex" id="male">
+                <label for="male">男</label>
+                <input type="radio" name="sex" id="female">
+                <label for="female">女</label>
+            </span>
+        </div>
+        <div class="tr">
+            <span class="td">爱好</span>
+            <span>
+                <label for="movie"><input type="checkbox" name="hobby" id="movie" checked>电影</label>
+                <label for="sy"><input type="checkbox" name="hobby" id="sy">摄影</label>
+                <label for="music"><input type="checkbox" name="hobby" id="music">音乐</label>
+                <label for="read"><input type="checkbox" name="hobby" id="read" checked>阅读</label>
+            </span>
+        </div>
+        <div class="tr">
+            <label for="content" class="td">签名</label>
+            <span>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            </span>
+        </div>
+        <div class="tr">
+            <span class="td"></span>
+            <span>
+                <button type="submit">保存</button>
+            </span>
+        </div>
+    </form>
+</body>
+</html>
