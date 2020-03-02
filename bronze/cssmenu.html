@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS多级菜单</title>      
+    <style>
+        * {margin: 0; padding: 0; border: 0;}
+        .nav {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -123px;
+            margin-left: -86px;
+            width: 172px;
+            height: 123px;
+            font: 16px "Microsoft Yahei";
+            cursor: pointer;
+        }
+        .nav-list {
+            width: 172px;
+            height: auto;
+            line-height: 40px;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+            background: #3dbb9b;
+        }
+        .tit {width: 172px; height: 40px;}
+        .nav-list ul {width: 172px; height: auto;}
+        .nav-list ul li {
+            display: none;
+            position: relative;
+            width: 172px;
+            height: 40px;
+            border-bottom: 1px dashed #3dbb9b;
+            color: #3dbb9b;
+            background: #fff;
+        }
+        .nav-list:hover ul li {display: block;}
+        .nav-list .list-sub {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 172px;
+            height: 40px;
+        }
+        .nav-list .list-sub  .list-sub3 {
+            transition: .6s;
+            width: 172px;
+            height: 40px;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+            background: #b3c7b9;
+        }
+        .nav-list ul li:hover .list-sub {
+            display: block;
+
+        }
+        .list-sub .list-sub3:hover {
+            border-radius: 10px;
+            box-shadow: inset 0 0 1px 1px #fff;
+            background: #abcdef;
+        }
+    </style>
+</head> 
+<body>
+    <div class="nav">
+        <div class="nav-list">
+            <div class="tit">页面制作</div>
+            <ul>
+                <li>
+                    HTML
+                    <div class="list-sub">
+                        <div class="list-sub3">简介</div>
+                        <div class="list-sub3">标签</div>
+                        <div class="list-sub3">实体字符</div>
+                    </div>
+                </li>
+                <li>
+                    CSS
+                    <div class="list-sub">
+                        <div class="list-sub3">选择器</div>
+                        <div class="list-sub3">盒模型</div>
+                        <div class="list-sub3">动画</div>
+                    </div>
+                </li>
+                <li>
+                    PS切图
+                    <div class="list-sub">
+                        <div class="list-sub3">切图</div>
+                        <div class="list-sub3">保存与修改</div>
+                        <div class="list-sub3">优化与合并</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-list">
+            <div class="tit">JavaScript</div>
+            <ul>
+                <li>
+                    JS基础
+                    <div class="list-sub">
+                        <div class="list-sub3">基本类型</div>
+                        <div class="list-sub3">引用类型</div>
+                        <div class="list-sub3">正则表达式</div>
+                    </div>
+                </li>
+                <li>
+                    JS进阶
+                    <div class="list-sub">
+                        <div class="list-sub3">作用域</div>
+                        <div class="list-sub3">闭包</div>
+                        <div class="list-sub3">面向对象</div>
+                    </div>
+                </li>
+                <li>
+                    JS测试
+                    <div class="list-sub">
+                        <div class="list-sub3">测试1</div>
+                        <div class="list-sub3">测试2</div>
+                        <div class="list-sub3">测试3</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-list">
+            <div class="tit">DOM</div>
+            <ul>
+                <li>
+                    基础篇
+                    <div class="list-sub">
+                        <div class="list-sub3">节点</div>
+                        <div class="list-sub3">列表</div>
+                        <div class="list-sub3">事件</div>
+                    </div>
+                </li>
+                <li>
+                    进阶篇
+                    <div class="list-sub">
+                        <div class="list-sub3">音频</div>
+                        <div class="list-sub3">视频</div>
+                        <div class="list-sub3">canvas</div>
+                    </div>
+                </li>
+                <li>
+                    实践篇
+                    <div class="list-sub">
+                        <div class="list-sub3">数据存储</div>
+                        <div class="list-sub3">数据通信</div>
+                        <div class="list-sub3">列表操作</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-list">
+            <div class="tit">页面架构</div>
+            <ul>
+                <li>
+                    布局方案
+                    <div class="list-sub">
+                        <div class="list-sub3">居中布局</div>
+                        <div class="list-sub3">多列布局</div>
+                        <div class="list-sub3">全屏布局</div>
+                    </div>
+                </li>
+                <li>
+                    页面优化
+                    <div class="list-sub">
+                        <div class="list-sub3">减少请求</div>
+                        <div class="list-sub3">性能提升</div>
+                        <div class="list-sub3">规范代码</div>
+                    </div>
+                </li>
+                <li>
+                    模块化
+                    <div class="list-sub">
+                        <div class="list-sub3">规范</div>
+                        <div class="list-sub3">模块化</div>
+                        <div class="list-sub3">模块化原理</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> 
+</body>
+</html>
