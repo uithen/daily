@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝首页轮播CSS实现</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        a {text-decoration: none; color: #fff;}
+        li {list-style: none;}
+        .tb-promo {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 62px auto;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        /* 轮播页按钮 */
+        .prev,
+        .next {
+            visibility: hidden;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            width: 50px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 20px;
+            background: rgba(0,0,0,.7);
+        }
+        .prev {left: -26px; text-indent: 1em;}
+        .next {right: -26px; text-indent: -1em;}
+        .prev:hover,
+        .next:hover {
+            opacity: .3;
+        }
+        .tb-promo:hover .prev,
+        .tb-promo:hover .next {
+            visibility: visible;
+        }
+        /* 轮播标题文字 */
+        .promo-title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            line-height: 16px;
+            font-size: 12px;
+            background: #000;
+            opacity: .4;
+        }
+        /* 轮播页码 */
+        .promo-nav {
+            position: absolute;
+            left: 50%;
+            bottom: 15px;
+            height: 13px;
+            margin-left: -35px;
+            border-radius: 10px;
+            font-size: 0;
+            text-align: center;
+            background: rgba(255,255,255,.3);
+        }
+        .promo-nav li {display: inline-block; margin: 3px;}
+        .promo-nav li a {
+            display: block;
+            width: 8px;
+            height: 0;
+            padding-top: 8px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .promo-nav .selected {background: #ff5000;}
+
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <img src="images/promo.jpg" alt="">
+        <div class="prev"><a href="#">&lt;</a></div>
+        <div class="next"><a href="#">&gt;</a></div>
+        <p class="promo-title"><a href="#">2020天猫情人节悦享</a></p>
+        <ul class="promo-nav">
+            <li><a href="" class="selected"></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>
