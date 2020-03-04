@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linear-gradient实现菱形图案</title>
+    <style>
+        .diamond {
+            width: 626px;
+            height: 626px;
+            margin: 0 auto;
+            white-space: pre-wrap;
+            font-weight: bold;
+            line-height: 26px;
+            color: rgba(26, 26, 26, .5);
+            background: #fff;
+            background-size: 10% 10%;
+            background-image: linear-gradient(45deg, #366 25%, transparent 0),
+                              linear-gradient(-45deg, #366 25%, transparent 0),
+                              linear-gradient(45deg, transparent 75%, #366 0),
+                              linear-gradient(-45deg, transparent 75%, #366 0);                       
+        }
+        .diamond > h1 {
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="diamond">
+        <h1>CSS：</h1>
+        <p>
+            width: 626px;
+            height: 626px;
+            background: #fff;
+            background-size: 10% 10%;
+            background-image: linear-gradient(45deg, #366 25%, transparent 0),
+                              linear-gradient(-45deg, #366 25%, transparent 0),
+                              linear-gradient(45deg, transparent 75%, #366 0),
+                              linear-gradient(-45deg, transparent 75%, #366 0);            
+        </p>
+    </div>
+</body>
+</html>
