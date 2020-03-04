@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS变形backface显示隐藏</title>
+    <style>
+        /* reset  */
+        * {margin: 0; padding: 0; border: 0;}
+        .container {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            margin: 62px auto;
+            font: bold 172px/260px Arial,sans-serif;
+            text-align: center;
+            white-space: pre-wrap;
+            word-break: break-all;
+            box-sizing: border-box;
+            color: #fff;
+            background: rgba(0,255,0,.5);
+        }
+        .container pre {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,255,0,.75);
+        }
+
+
+    /*容器最外层设置perspective,呈现3D效果.该属性,值越大透视效果越明显*/
+        .container {perspective: 1217px;}
+    /*多个transform元素若想保留3D空间,需要在其父元素上设置transform-style*/
+        .container > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+    /*为了能看出正反面效果,这里先把某个元素旋转180度*/
+        .container pre:first-child { transform:rotate3d(0,1,0,180deg) translateZ(1px);}
+        .container pre:last-child { transform:none;}
+    /*如果元素具有透明效果,那么当我们rotate的时候,正反面都是可见的,如果想使其背面不可见:*/
+        .container0 > div { transform:rotate3d(0,1,0,135deg);backface-visibility: hidden;}
+    /*正常情况下*/
+    .container1 > div { transform:rotateY(135deg);}   
+    /*背面隐藏*/
+    .container2 > div { transform:rotateY(135deg);}
+    .container2 pre { backface-visibility:hidden;}
+    /*还可以鼠标hover时做翻转*/
+    .container3 > div { transform:rotateY(45deg);}
+    .container3:hover div { transform:rotateY(135deg);}
+    .container3 pre { backface-visibility:hidden;}
+    </style>
+</head>
+<body>
+    <div class="container container0">
+        <div>
+            <pre>Z</pre>
+        </div>
+    </div>
+    <div class="container container1">
+        <div>
+            <pre>Z</pre>
+            <pre>J</pre>
+        </div>
+    </div>
+    <div class="container container2">
+        <div>
+            <pre>Z</pre>
+            <pre>J</pre>
+        </div>
+    </div>
+    <div class="container container3">
+        <div>
+            <pre>Z</pre>
+            <pre>J</pre>
+        </div>
+    </div>
+</body>
+</html>
