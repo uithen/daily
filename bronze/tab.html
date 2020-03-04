@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css tab</title>
+    <style>
+        * { margin: 0; padding: 0; border: 0;}
+        .container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 574px;
+            margin: -48px 0 0 -287px;
+            border: 1px solid #999;
+            box-sizing: border-box;
+            font: 14px "Microsoft Yahei";
+        }
+        .container input {display: none;}
+        .courses label {
+            float: left;
+            width: 190px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            border-right: 1px solid #cecece;
+            border-bottom: 1px solid #cecece;
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+        .courses::after {
+            clear: both;
+            content: "";
+            display: block;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        .courses label:nth-of-type(3) {
+            border-right: none;
+        }
+        .contents > div {
+            padding: 20px;
+            display: none;
+        }
+        #tag1:checked ~ .courses .course1,
+        #tag2:checked ~ .courses .course2,
+        #tag3:checked ~ .courses .course3
+        {
+            border-bottom: none;
+            background: #fff;
+        }
+		#tag1:checked ~ .contents .content1,
+		#tag2:checked ~ .contents .content2,
+		#tag3:checked ~ .contents .content3 {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="radio" name="tab" id="tag1" checked>
+        <input type="radio" name="tab" id="tag2">
+        <input type="radio" name="tab" id="tag3">
+        <div class="courses">
+            <label for="tag1" class="course1">课程</label>
+            <label for="tag2" class="course2">学习计划</label>
+            <label for="tag3" class="course3">技能图谱</label>
+        </div>
+        <div class="contents">
+            <div class="content1">HTML</div>
+            <div class="content2">CSS</div>
+            <div class="content3">JavaScript</div>
+        </div>
+    </div>
+</body>
+</html>
