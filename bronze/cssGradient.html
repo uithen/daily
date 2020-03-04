@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS渐变demo-蓝天白云绿草</title>
+    <style>
+        /* reset  */
+        * {margin: 0; padding: 0; border: none;}
+        html,
+        body {width: 100%; height: 100%;}
+        /* sky  */
+        .sky {
+            position: relative;
+            width: 100%;
+            height: 60%;
+            background-image: linear-gradient(rgba(196, 228, 253, 1), rgba(196, 228, 253, .5) 50%, rgba(196, 228, 253, 0));
+        }
+        /* cloud  */
+        .cloud {
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            width: 176px;
+            height: 62px;
+            border-radius: 45px;
+            box-shadow: 0 3px 10px #eee;
+            background: #fff;
+        }
+        .cloud::before {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            width: 102px;
+            height: 76px;
+            border-radius: 40px;
+            transform: rotate(-113deg);
+            content: "";
+            background: #fff;
+        }
+        .cloud::after {
+            position: absolute;
+            top: -50px;
+            left: 90px;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            content: "";
+            background: #fff;
+        }
+        .cloud2 {top: 15%; left: 17%; transform: scale(.8);}
+        .cloud3 {top: 40%; left: 45%; transform: scale(.6);}
+        .cloud4 {top: 20%; left: 56%; transform: scale(.5);}
+        .cloud5 {top: 22%; left: 25%; transform: scale(.7);}
+        /* green land  */
+        .green {
+            width: 100%;
+            height: 40%;
+            background-image: linear-gradient(0deg, rgb(148, 190, 89), rgba(148, 190, 89, .5) 50%, rgba(148, 190, 89, 0));
+        }
+    </style>
+</head>
+<body>
+    <!-- sky -->
+    <div class="sky">
+        <div class="cloud cloud1" ></div>
+        <div class="cloud cloud2" ></div>
+        <div class="cloud cloud3" ></div>
+        <div class="cloud cloud4" ></div>
+        <div class="cloud cloud5" ></div>
+    </div>
+    <!-- green land -->
+    <div class="green"></div>
+</body>
+</html>
