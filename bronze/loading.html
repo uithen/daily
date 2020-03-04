@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading</title>
+    <style>
+        .container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 96px;
+            height: 12px;
+            margin: -6px 0 0 -48px;
+            /*设置.box超出部分隐藏,注释掉这行,对整个过程可以有直观的理解*/
+            overflow: hidden;
+        }
+        .container .box {
+            /* 宽度为所有排列点的总和(8+4*2)*11 */
+            width: 176px;
+                        /*容器里一共6个i,最后一个i设置的scale,所以只需移动5步之后
+                        设置了scale的那个i就在该容器的最后一个i位置上
+                        这个loading效果最重要的就是animation-timing-function这个属性
+                        要设置成单步动画,并在start或者end进行动画*/
+            animation: loading 1s steps(5, end) both infinite;
+
+        }
+        /*每个i的排列方式*/
+        .container .box i {
+            float: left;
+            width: 8px;
+            height: 4px;
+            margin: 4px;
+            background: #aaa;
+        }
+		/*对该容器的最后一个i进行缩放,呈现出高亮效果,两边各5个普通i*/
+        .container .box i:nth-child(6) {
+            transform: scale(1.5);
+            background: #333;
+        }
+		/*关键帧分成5步移动.box,视觉上带给观察者一种loading的效果*/
+        @keyframes loading {
+			/*把.box进度条移动到容器最左侧,此时第6个点正好在容器左侧第一个位置*/
+            0% {
+                transform: translate(-80px);
+            }
+			/* 向右移动到第一个点正好在容器的左侧第一个，这里80%就完成一遍动画是为了给最后一步留出1/5的停留时间 */
+            80%,
+            100% {
+                transform: translate(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+</body>
+</html>
