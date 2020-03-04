@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全等四宫格</title>
+    <style>
+        /* 方案一：flex */
+        /* .parent {
+            display: flex;
+            width: 400px;
+            height: 400px;
+            flex-flow: row wrap;
+            margin: -5px;
+        }
+        .child {
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            background: pink;
+        } */
+
+        /* 方案二：float */
+        /* .parent {
+            width:400px;
+            height:400px;
+            margin:-5px;
+        }
+        .child {
+            float: left;
+            width: 50%;
+            height: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            background: pink;
+        } */
+
+        /* 方案三：视觉实现 */
+        .parent {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .child {
+            width: 50%;
+            height: 50%;
+            box-shadow: 200px 0 0 0 pink;
+            background: pink;
+        }
+        .child + .child::before {
+            position:absolute;
+            width:200%;
+            height:10px;
+            content:"";
+            background: #fff;
+            }  
+        .child + .child::after {
+            position:absolute;
+            top:0;
+            left:50%;
+            width:10px;
+            height:200%;
+            content:"";
+            background: #fff;
+            }     
+    </style>
+</head>
+<body>
+    <h3>一个未知宽高的容器均分为四个大小相同格子且格子间有10像素的间距</h3>
+    <!-- 方案一、二结构 -->
+    <!-- <div class="parent">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div> -->
+
+    <!-- 方案三结构 -->
+    <div class="parent">
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+</html>
