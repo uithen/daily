@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三行两列自适应</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-flow: column;
+            font: 26px "Microsoft Yahei";
+            text-align: center;
+            color: #fff;
+        }
+        header,
+        footer {
+            height: 100px;
+            line-height: 100px;
+            background: #abcdef;
+        }
+        section {
+            flex: 1;
+            display: flex;
+            align-self: center;
+            width: 620px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        article {
+            flex: 1;
+            margin-left: 10px;
+            background: pink;
+        }
+        aside {
+            flex-basis: 200px;
+            order: -1;
+            background: #cecece;
+        }
+        article,
+        aside {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <section>
+        <article>主内容区</article>
+        <aside>侧边栏</aside>
+    </section>
+    <footer>footer</footer>
+</body>
+</html>
