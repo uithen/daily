@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易两栏自适应</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="side">侧栏</div>
+        <div class="main">主栏</div>
+    </div>
+	<!-- html5新属性,style标签的scoped属性,有了它样式可以安置于整个文档任何位置,此处这样写仅为记忆和熟悉用法 -->
+    <style scoped>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .parent {
+            display: flex;
+            margin: 0 auto;
+            line-height: 200px;
+            font: 50px "Microsoft Yahei",sans-serif;
+            text-align: center;
+            color: #fff;
+        }
+        .side {
+            flex-basis: 200px;
+            margin-right: 10px;
+            background: pink;
+        }
+        .main {
+            flex: 1;
+            order: 1;
+            background: red;
+        }
+    </style>
+</body>
+</html>
