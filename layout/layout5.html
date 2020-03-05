@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列定宽水平居中布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            width: 810px;
+            min-height: 200px;
+            margin: 100px auto;
+            font-size: 50px;
+            line-height: 200px;
+            text-align: center;
+            color: #fff;
+        }
+        .parent .side {
+            float: left;
+            width: 200px;
+            margin-right: 10px;
+            background: pink;
+        }
+        .parent .main {
+            float: right;
+            width: 600px;
+            background: #abcdef;
+        }
+        .clearfix::after {
+			display: block;
+			clear: both;
+			content: " ";
+			height: 0;
+			visibility: hidden;
+			overflow: hidden;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="parent clearfix">
+        <div class="side">侧栏</div>
+        <div class="main">主栏</div>
+    </div>
+</body>
+
+</html>
