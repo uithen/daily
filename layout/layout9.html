@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用flex实现全屏布局</title>
+    <style>
+        /* 
+            1. 如果想要设置成百分比的自适应,把以上定高定宽处使用px单位的换成百分比的即可.
+            2. 如果想要设置为全模块自适应,只需把以上定高定宽的属性去掉即可
+         */
+		* {
+			margin: 0;
+			padding: 0;
+			font: bold 26px "Microsoft YaHei";
+			text-align: center;
+			color: #fff;
+        }   
+         html,
+         body,
+         .outermost {
+            height: 100%;
+         }  
+         .outermost {
+             display: flex;
+             flex-direction: column;
+         }  
+         .top,
+         .bottom {
+             height: 62px;
+             background: #cecece;
+         }
+         .middle {
+             flex: 1;
+             display: flex;
+             /* 强制隐藏middle的垂直滚动条 */
+             overflow: hidden;
+         }
+         .left {
+             width: 200px;
+             background: pink;
+         }
+         .right {
+             flex: 1;
+             overflow: auto;
+             background: #abcdef;
+         }
+         .right > .right-inner {
+             min-height: 1217px;
+         }
+    </style>
+</head>
+<body>
+    <div class="outermost">
+        <div class="top">top</div>
+        <div class="middle">
+            <div class="left">left</div>
+            <div class="right">
+                <div class="right-inner">right</div>
+            </div>
+        </div>
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>
