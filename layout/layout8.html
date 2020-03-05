@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full screen：position </title>
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+			font: bold 26px "Microsoft YaHei";
+			text-align: center;
+			color: #fff;
+        } 
+        html,
+        body,
+        .outermost {
+            height: 100%;
+            overflow: hidden;
+        }    
+        .top {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 62px;
+            background: #cecece;
+        }   
+        .left {
+            position: absolute;
+            top: 62px;
+            bottom: 62px;
+            left: 0;
+            width: 200px;
+            background: pink;
+        }
+        .right {
+            position: absolute;
+            top: 62px;
+            right: 0;
+            bottom: 62px;
+            left: 200px;
+            overflow: auto;
+            background: #abcdef;
+        }
+        .right > .right-inner {
+            min-height: 1217px;
+        }
+        .bottom {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 62px;
+            background: #cecece;
+        }
+    </style>
+</head>
+<body>
+    <div class="outermost">
+        <div class="top">top</div>
+        <div class="left">left</div>
+        <div class="right">
+            <div class="right-inner">right</div>
+        </div>
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>
