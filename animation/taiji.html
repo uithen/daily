@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太极</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none; 
+        }
+        /* 禁止因动画带来的垂直滚动条 */
+        body {
+            overflow: hidden;
+        }
+        .taiji {
+            position: absolute;
+            /* 同时设置四个方向,配合margin元素会垂直水平居中 */
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 360px;
+            height: 360px;
+            margin: auto;
+            /* 让盒子大小限制为给定宽高 */
+            box-sizing: border-box;
+            border: 1px solid #f00;
+            /* 利用底边框和background-image的特性填充颜色 */
+            border-bottom: 180px solid #f00;
+            border-radius: 50%;      
+            animation: rotating 6s linear infinite both;      
+        }
+
+        /* 拼圆 */
+        .taiji::before,
+        .taiji::after {
+            position: absolute;
+            content: "";
+            border-radius: 50%;
+        }
+        /* 利用box-shadow的偏移特性复制出太极里的小圆 */
+        .taiji::before {
+            top: 50%;
+            left: 0;
+            width: 180px;
+            height: 180px;
+            box-shadow: 178px 0 0 0 #fff;
+            background: #f00;
+        }
+        .taiji::after {
+            top: 155px;
+            left: 58px;
+            width: 70px;
+            height: 70px;
+            box-shadow: 180px 0 0 0 #f00;
+            background: #fff;
+            z-index: 999;
+        }
+
+        /* 关键帧定义 */
+        @keyframes rotating {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="taiji"></div>
+</body>
+</html>
