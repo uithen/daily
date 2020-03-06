@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bluesky</title>
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+			border: none;
+		}   
+        html,
+		body {
+			width: 100%;
+			height: 100%;
+		}    
+		/*sky*/
+		.sky {
+			position: relative;
+			width: 100%;
+			height: 60%;
+			background-image: linear-gradient(rgba(196, 228, 253, .9) 0%, rgba(196, 228, 253, 0) 100%);
+			overflow: hidden;
+		}
+		/*cloud*/
+		.sky>.cloud {
+			position: absolute;
+			top: 30%;
+			right: 10%;
+			width: 176px;
+			height: 62px;
+			border-radius: 45px;
+			box-shadow: 0 10px 10px #eee;
+			background: #fff;
+			animation: cloud 13s linear infinite;
+		}
+
+		.sky>.cloud::before {
+			position: absolute;
+			top: -20px;
+			left: 10px;
+			width: 102px;
+			height: 76px;
+			content: '';
+			transform: rotate(-113deg);
+			border-radius: 40px;
+			background: #fff;
+		}
+
+		.sky>.cloud::after {
+			position: absolute;
+			top: -50px;
+			left: 90px;
+			width: 72px;
+			height: 72px;
+			content: '';
+			border-radius: 50%;
+			background: #fff;
+		}     
+		   
+		.sky>.cloud:first-of-type {
+			top: 15%;
+			left: 35%;
+			transform: scale(.8);
+			animation: cloud1 6s linear infinite both;
+			z-index: 2;
+		}
+
+		.sky>.cloud:nth-of-type(2) {
+			top: 40%;
+			left: 55%;
+			transform: scale(.6);
+			animation: cloud2 7s linear infinite both;
+		}
+
+		.sky>.cloud:nth-of-type(3) {
+			top: 20%;
+			left: 55%;
+			transform: scale(.5);
+			opacity: .5;
+			animation: cloud3 6s linear infinite both;
+		}
+
+		.sky>.cloud:nth-of-type(4) {
+			top: 20%;
+			left: 65%;
+			transform: scale(.5);
+			animation: cloud4 11s linear infinite both;
+			z-index: 999;
+		}
+
+		.sky>.cloud:last-of-type {
+			top: 22%;
+			left: 42%;
+			transform: scale(.7);
+			opacity: .5;
+			animation: cloud5 12s linear infinite both;
+		}
+
+		/*grass & 兔子*/
+		.grass {
+			width: 100%;
+			height: 40%;
+			background: url("images/rabbit.png") no-repeat right 200px bottom 50px/200px 200px content-box, linear-gradient(0deg, rgba(148, 190, 89, .9) 0%, rgba(148, 190, 89, 0) 100%);
+		}
+
+		/*白云动画关键帧*/
+
+		@keyframes cloud1 {
+			from {
+				margin-left: 999px;
+			}
+
+			to {
+				margin-left: -999px;
+				;
+			}
+		}
+
+		@keyframes cloud2 {
+			from {
+				margin-left: 999px;
+			}
+
+			to {
+				margin-left: -999px;
+				;
+			}
+		}
+
+		@keyframes cloud3 {
+			from {
+				margin-left: 0;
+			}
+
+			to {
+				margin-left: -999px;
+				;
+			}
+		}
+
+		@keyframes cloud4 {
+			from {
+				margin-left: 999px;
+			}
+
+			to {
+				margin-left: -999px;
+				;
+			}
+		}
+
+		@keyframes cloud5 {
+			from {
+				margin-left: 999px;
+			}
+
+			to {
+				margin-left: -999px;
+				;
+			}
+		} 
+    </style>
+</head>
+<body>
+    <div class="sky">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    <div class="grass">
+		<!-- <img src="images/rabbit.png" width="100px" height="100px"> -->
+    </div>
+</body>
+</html>
