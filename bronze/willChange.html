@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试CSS3属性:will-change</title>
+    <style>
+        /* will-change属性可以提前告知浏览器在接下来元素变化之前应做哪些优化(GPU加速) */
+        body {
+            background: #abcdef;
+        }
+        .container {
+            position: relative;
+            width: 760px;
+            height: 760px;
+            margin: auto;
+            transform-style: preserve-3d;
+        }
+        .container > div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 8s ease;
+			/*transform属性的变形让GPU来处理,提升性能*/
+            will-change: transform;
+            
+        }
+        .container > .cute {
+            background-image: url(images/cute.png);
+        }
+        .container > .inner {
+            transform: rotateX(0deg);
+            background-image: url(images/circle_inner.png);
+        }
+        .container > .middle {
+            transform: rotateY(0deg);
+
+            background-image: url(images/circle_middle.png);
+        }
+        .container > .outer {
+            transform: rotateZ(0deg);
+
+            background-image: url(images/circle_outer.png);
+        }
+
+		/*当不hover时,浏览器自动移除will-change,释放资源*/
+		.container:hover>.inner {
+			transform: rotateX(360deg);
+		}
+
+		.container:hover>.middle {
+			transform: rotateY(360deg);
+		}
+
+		.container:hover>.outer {
+			transform: rotateZ(360deg);
+		}        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner"></div>
+        <div class="middle"></div>
+        <div class="outer"></div>
+        <div class="cute"></div>
+    </div>
+</body>
+</html>
