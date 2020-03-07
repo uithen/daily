@@ -1,0 +1,180 @@
+/* reset  */
+* {
+  margin: 0;
+  padding: 0;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* head & foot  */
+header,
+footer {
+  width: 100%;
+  height: 100px;
+}
+/* head  */
+header img {
+  width: 300px;
+  height: 85px;
+  padding-left: 100px;
+  padding-top: 8px;
+}
+header .logo {
+  float: left;
+}
+header nav {
+  float: right;
+  padding-right: 25px;
+}
+header nav a {
+  display: inline-block;
+  width: 80px;
+  height: 100px;
+  text-decoration: none;
+  line-height: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #7d7d7d;
+}
+header nav a:hover {
+  color: red;
+  text-decoration: underline;
+  font-weight: bolder;
+}
+/* 主体  */
+section .top {
+  width: 100%;
+  height: 600px;
+}
+section .top img {
+  width: 100%;
+  height: 600px;
+}
+/*图片中有一行文字、一个按钮和一个遮罩层*/
+section .toplayer {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background: #000;
+  opacity: 0.5;
+}
+section .toplayer-top {
+  position: absolute;
+  top: 400px;
+  right: 50%;
+  width: 500px;
+  height: 300px;
+  margin-top: -150px;
+  margin-right: -250px;
+  z-index: 2;
+}
+/*文字*/
+section .top .word {
+  font: bolder 45px "Microsoft Yahei";
+  padding-top: 100px;
+  color: #fff;
+  text-align: center;
+}
+/*按钮*/
+section .top button {
+  width: 200px;
+  height: 60px;
+  margin-left: 150px;
+  margin-top: 50px;
+  font: 14px "Microsoft Yahei";
+  border-radius: 8px;
+  background: #f5704f;
+  color: #fff;
+  cursor: pointer;
+}
+/*主体中间部分固定宽,并居中*/
+section .middle {
+  width: 1000px;
+  margin: 0 auto;
+}
+section .middle .m-top .contact {
+  float: left;
+  width: 33.3%;
+  padding-top: 50px;
+  text-align: center;
+}
+section .middle .m-top .contact img {
+  width: 100px;
+  height: 100px;
+}
+section .middle .m-top .contact .txt {
+  font-size: 20px;
+  color: #7d7c7f;
+  font-weight: bold;
+  padding-top: 20px;
+}
+section .middle .m-middle {
+  font: bold italic 22px "Microsoft Yahei";
+  color: #e19796;
+  padding: 50px 0;
+  text-align: center;
+}
+section .middle .m-bottom figure {
+  float: left;
+  padding: 10px;
+  text-align: center;
+  font: bold 20px "Microsoft Yahei";
+}
+section .middle .m-bottom img {
+  width: 310px;
+  height: 260px;
+}
+section .middle .m-bottom figcaption {
+  color: #666;
+  padding-top: 5px;
+}
+section .middle .m-bottom p {
+  color: #ddd;
+  padding-top: 5px;
+}
+/*主体底部*/
+section .bottom {
+  background: #f9f9f9;
+}
+section .bottom .content {
+  width: 1000px;
+  margin: 0 auto;
+}
+section .bottom .title {
+  font: bold 20px "Microsoft Yahei";
+  text-align: center;
+  color: #7d7c7f;
+  padding: 50px 0;
+}
+section .bottom .pic-content dl {
+  float: left;
+  width: 470px;
+  margin: 10px 12px;
+}
+section .bottom .pic-content img {
+  width: 470px;
+  height: 460px;
+}
+section .bottom .pic-content dd {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7d7c7f;
+  padding: 20px 0 50px 0;
+}
+/*页面底部*/
+footer {
+  text-align: center;
+  line-height: 100px;
+  font-family: "微软雅黑";
+  font-size: 15px;
+  color: #ffffff;
+  background: #292c35;
+}
