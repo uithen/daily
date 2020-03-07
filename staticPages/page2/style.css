@@ -1,0 +1,235 @@
+/* reset  */
+* {
+  font: 14px Arial;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  content: "";
+}
+
+/* head  */
+header {
+  position: relative;
+  height: 80px;
+  background: #eef;
+}
+header .container {
+  position: relative;
+  z-index: 2;
+  width: 1200px;
+  margin: 0 auto;
+}
+header .container > a {
+  display: block;
+  float: left;
+  margin: 5px 25px;
+}
+header .container nav {
+  font-size: 0;
+  float: right;
+}
+header .container nav a {
+  display: inline-block;
+  width: 110px;
+  height: 73px;
+  font: 24px/73px "Microsoft Yahei";
+  text-align: center;
+  color: #000;
+}
+header > .container > nav > a:first-child {
+  padding-bottom: 7px;
+  background: #ffdab9;
+}
+header > .container > nav > a:nth-child(2) {
+  background: #7d7dff;
+}
+header > .container > nav > a:nth-child(3) {
+  background: #00e3e3;
+}
+header > .container > nav > a:nth-child(4) {
+  background: #c48888;
+}
+header > .container > nav > a:nth-child(5) {
+  background: #4169e1;
+}
+header > .container > nav > a:nth-child(6) {
+  background: #a9a9a9;
+}
+header > .container > nav > a:hover {
+  padding-bottom: 7px;
+  transition: 0.5s;
+  color: #fff;
+  box-shadow: inset 0 0 1px 1px #fff;
+}
+header::after {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 7px;
+  content: "";
+  background: #66cdaa;
+}
+
+/* banner */
+.banner {
+  position: relative;
+  background: #eaeaea;
+}
+.banner > ul {
+  position: relative;
+  width: 1490px;
+  height: 538px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.banner > ul > li {
+  position: absolute;
+  overflow: hidden;
+  width: 610px;
+  height: 300px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.35);
+}
+.banner > ul > li:first-child {
+  z-index: 2;
+  top: 37px;
+  right: 0;
+  left: 0;
+  width: 960px;
+  height: 460px;
+  margin: auto;
+  border: 1px solid #fff;
+  box-shadow: 0 30px 140px 22px rgba(0, 0, 0, 0.3);
+}
+.banner > ul > li:nth-child(2) {
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.banner > ul > li:nth-child(3) {
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.banner > ul > li > img {
+  position: absolute;
+  left: -30%;
+  height: 100%;
+}
+.banner::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 7px;
+  content: "";
+  background: #66cdaa;
+}
+
+/* main  */
+.main {
+  width: 1200px;
+  margin: 50px auto 0;
+}
+.main > aside {
+  float: left;
+  width: 450px;
+}
+.main h1 {
+  font-size: 30px;
+  font-weight: lighter;
+  margin-bottom: 25px;
+}
+.main h1 > samp {
+  font-size: 30px;
+  color: #7c7c7c;
+}
+.main > aside > dl {
+  position: relative;
+  height: 74px;
+  margin-bottom: 20px;
+}
+.main > aside > dl > dt {
+  font: bold 16px Arial;
+  position: absolute;
+  top: -2px;
+  left: 90px;
+  text-decoration: underline;
+}
+.main > aside > dl > dd:first-of-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main > aside > dl > dd:last-of-type {
+  position: absolute;
+  top: 20px;
+  left: 90px;
+}
+.main > article {
+  float: right;
+  overflow: hidden;
+  width: 720px;
+}
+.main > article > p,
+.main > article > img {
+  margin-bottom: 20px;
+}
+
+/* foot  */
+footer {
+  position: relative;
+  background: #000;
+}
+footer > .container {
+  width: 1200px;
+  height: 64px;
+  margin: 0 auto;
+  color: #fff;
+}
+footer > .container > p {
+  line-height: 64px;
+  float: left;
+}
+footer > .container > span {
+  float: right;
+  margin: 15px 50px;
+}
+footer > .container > span > img {
+  opacity: 0.5;
+  padding: 0 10px;
+}
+footer > .container > span > img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+footer::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 7px;
+  content: "";
+  background: #66cdaa;
+}
