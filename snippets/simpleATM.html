@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>简易ATM</title>
+	</head>
+	<body>
+		<script>
+			// 假设顾客卡内存款数为100元
+			var balance = 100;
+			do {
+				var opt = prompt(
+					'简易ATM为您服务,请输入数字:\n1：存款\n2：取款\n3：余额\n4：退出'
+				);
+				switch (opt) {
+					case '1':
+						var deposit = prompt('请输入要存金额的数目:');
+						balance += parseInt(deposit);
+						alert('操作成功,存入现金' + deposit + '元');
+						break;
+					case '2':
+						var withdraw = prompt('请输入要取金额的数目');
+						if (withdraw > balance) {
+							alert('卡内余额不足,请重新输入');
+						} else {
+							balance -= parseInt(withdraw);
+							alert('操作成功,取出现金' + withdraw + '元');
+						}
+						break;
+					case '3':
+						alert('您的余额为' + balance + '元');
+						break;
+					case '4':
+						alert('退出成功,请取走您的卡片');
+						break;
+				}
+			} while (opt != '4' && opt != null && opt != '');
+		</script>
+	</body>
+</html>
