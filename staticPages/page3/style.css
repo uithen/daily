@@ -1,0 +1,200 @@
+/* reset  */
+* {
+  font-family: "Microsoft YaHei UI";
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.clearfix::after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  overflow: hidden;
+  height: 0;
+  content: "";
+}
+
+/* head  */
+header {
+  height: 100px;
+  background: #2e2e2e;
+}
+header > .top {
+  width: 1200px;
+  margin: 0 auto;
+}
+header > .top > nav {
+  float: right;
+}
+header > .top > a {
+  display: block;
+  float: left;
+  margin: 33px 20px;
+}
+header > .top > nav > a {
+  font-size: 20px;
+  line-height: 100px;
+  margin: 0 15px;
+  color: #fff;
+}
+header > .top > nav > a:hover {
+  color: #f46208;
+}
+/*banner*/
+.banner {
+  position: relative;
+}
+/*清除图片与周围元素留白问题*/
+.banner > img {
+  display: block;
+  width: 100%;
+  height: 560px;
+}
+/*"介绍块"文字*/
+hgroup > h1,
+.caption > h1 {
+  font-size: 48px;
+  font-weight: normal;
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding-top: 80px;
+  text-align: center;
+  letter-spacing: 8px;
+  color: #f46208;
+}
+hgroup > h4,
+.caption > h4 {
+  font-size: 14px;
+  font-weight: normal;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+/*banner图层文字*/
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -350px;
+  padding-top: 60px;
+  text-align: center;
+  color: #fff;
+}
+.caption > h1 {
+  color: #fff;
+}
+/*浮动元素的水平居中,需要给他外层的元素宽度设置为浮动元素宽度之和(即102*5)*/
+.portfolio > ul {
+  width: 610px;
+  margin: 50px auto;
+}
+.portfolio > ul > li {
+  line-height: 40px;
+  float: left;
+  width: 100px;
+  height: 40px;
+  margin-left: 8px;
+  text-align: center;
+  color: #f46208;
+  border: 1px solid;
+}
+.portfolio > ul > li:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #f46208;
+}
+.portfolio > img {
+  width: 100%;
+  height: 560px;
+}
+/*stats*/
+.stats > .stats-bottom {
+  width: 808px;
+  margin: 30px auto;
+}
+.stats > .stats-bottom > dl {
+  float: left;
+  width: 150px;
+  height: 200px;
+  padding: 25px;
+  text-align: center;
+  vertical-align: middle;
+}
+.stats > .stats-bottom > dl > dd:first-of-type {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+.stats > .stats-bottom > dl > dd:last-of-type {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #f46208;
+}
+.team {
+  color: #fff;
+  background: #2e2e2e;
+}
+.team > .members {
+  width: 846px;
+  margin: 30px auto;
+}
+.team > .members > figure {
+  font-size: 14px;
+  float: left;
+  width: 260px;
+  height: 280px;
+  padding: 10px;
+  text-align: center;
+}
+/*contact*/
+.contact > form .info {
+  width: 1020px;
+  margin: 70px auto 0;
+}
+.contact > form .info > input {
+  width: 500px;
+  height: 50px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+.contact > form .intro {
+  width: 1020px;
+  margin: 20px auto;
+}
+.contact > form .intro > textarea {
+  overflow: auto;
+  width: 1012px;
+  height: 280px;
+  resize: none;
+  border: 1px solid #ccc;
+}
+.contact > form .submit {
+  width: 200px;
+  margin: 0 auto 80px;
+}
+.contact > form .submit > input {
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  background: #f46208;
+  cursor: pointer;
+}
+/*footer*/
+footer {
+  line-height: 100px;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  background: #2e2e2e;
+}
