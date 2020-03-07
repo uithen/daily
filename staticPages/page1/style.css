@@ -1,0 +1,392 @@
+/* reset  */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+body {
+    background-color: #f3f5f7;
+    /* height: 2000px; */
+}
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: auto;
+}
+/* header区域 */
+header.w {
+    height: 42px;
+    margin: 30px auto;
+}
+
+/* logo模块 */
+.logo {
+    float: left;
+    width: 195px;
+    height: 42px;
+}
+.logo a {
+    display: inline-block;
+    width: 195px;
+    height: 42px;
+    background: url(images/logo.png);
+}
+
+/* 导航模块 */
+nav {
+    float: left;
+    margin-left: 70px;
+}
+nav li {
+    float: left;
+    margin:0 15px;
+}
+nav li a {
+    display: block;
+    height: 42px; 
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+
+/* 搜索模块 */
+.search {
+    float: left;
+    width: 410px;
+    height: 42px;
+    margin-left: 80px;
+}
+.search input {
+    float: left;
+    width: 344px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: none;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #bfbfbf;
+}
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    background: url(images/btn.png);
+    border: none;
+    cursor: pointer;
+}
+
+/* 用户模块 */
+.user {
+    float: right;
+    height: 42px;
+    margin-right: 35px;
+    padding-top: 5px;
+}
+.user img {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.user span {
+    padding-left: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* banner区域 */
+.banner {
+    height: 422px;
+    background-color: #1c036c;
+}
+.banner .w {
+    height: 422px;
+    background: url(images/banner2.png) no-repeat top center;
+}
+.subnav {
+    float: left;
+    width: 192px;
+    height: 422px;
+    background-color: rgba(0,0,0,.3);
+}
+.subnav ul li {
+    height: 46px;
+    line-height: 46px;
+    font-size: 14px;
+
+}
+.subnav ul li a {
+    display: inline-block;
+    width: 152px;
+    height: 46px;
+    padding: 0 20px;
+    color: #fff;
+}
+.subnav ul li span {
+    float:right;
+}
+
+.subnav ul li a:hover {
+    color: #00b4ff;
+}
+
+.course {
+    float: right;
+    width: 230px;
+    height: 300px;
+    /* 浮动元素不会出现上下外边距合并问题 */
+    margin-top: 50px;
+    background-color: #fff;
+}
+.course h2 {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #9bceea;
+    
+}
+.bd {
+    padding: 0 20px;
+}
+.bd li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+}
+.bd li h4 {
+    font-size: 14px;
+    color: #4e4e4e;
+}
+.bd li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.bd button {
+    width: 200px;
+    height: 38px;
+    margin: 5px 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00a4ff;
+    border: none;
+    border: 1px solid #00a4ff;
+    cursor: pointer;
+}
+
+
+/* 精品推荐 */
+.goods {
+    height: 60px;
+    line-height: 60px;
+    margin-top: 8px;
+    box-shadow: 0 2px 5px 2px #ccc;
+}
+
+.goods > h3 {
+    float: left;
+    margin-left: 34px;
+    font-size: 14px;
+    color: #00a4ff;
+}
+.goods-item {
+    float: left;
+}
+.goods-item li {
+    display: inline-block;
+}
+.goods-item li:first-of-type {
+    margin-left: 35px;
+}
+.goods-item li a {
+    padding: 0 35px;
+    border-left: 2px solid #ccc;
+    font-size: 16px;
+    color: #000;
+}
+.mod {
+    float: right;
+    margin-right: 25px;
+    font-size: 14px;
+    color: #00a4ff;
+
+}
+
+
+/* box核心区域 */
+.box,
+.box2 {
+    margin-top: 35px;
+}
+.box-hd {
+    height: 50px;
+}
+.box-hd h3 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+.box-hd a {
+    float: right;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.box-bd ul {
+    width: 1215px;
+}
+.box-bd ul li{
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+
+}
+.box-bd ul li:hover {
+    box-shadow: 0 2px 6px 6px #ccc;
+    cursor: pointer;
+}
+
+.box-bd ul li > img {
+    width: 100%;
+}
+.box-bd ul li {
+    position: relative;
+}
+.box-bd em img {
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+.box ul li h4 {
+    margin: 20px 20px 20px 25px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #050505;
+}
+.info {
+    margin-left: 25px;
+    font-size: 12px;
+    color: #999;
+}
+.info span {
+    color: #ff7c2d;
+}
+
+/* box2独立样式 */
+.box2-hd ul li {
+    float: left;
+    padding: 0 70px;
+}
+.box2-hd ul li:first-of-type {
+    padding-left: 326px;
+}
+
+.box-hd ul li a:hover {
+    color: #00a4ff;
+} 
+
+.box-sidebar {
+    float: left;
+    width: 228px;
+    height: 393px;
+    margin-right: 15px;
+}
+.box-main {
+    float: left;
+    width: 957px;
+
+
+}
+.box-sidebar img,
+.box-main img {
+    width: 100%;
+}
+.box-main-bd li {
+    width: 228px;
+    height: 270px;
+}
+.box-main li {
+    float: left;
+    margin-right: 15px;
+    margin-top: 19px;
+    background-color: #fff;
+}
+.box-main li:hover {
+    box-shadow: 0 2px 6px 6px #ccc;
+    cursor: pointer;  
+}
+.box-main-bd ul {
+    width: 972px;
+}
+
+
+/* footer区域 */
+footer {
+    height: 226px;
+    margin-top: 40px;
+    background-color: #fff;
+}
+footer .w {
+    padding-top: 35px;
+}
+.copyright {
+    float: left;
+}
+.copyright p {
+    margin: 24px 0 15px 0;
+    font-size: 12px;
+    color: #666;
+}
+.copyright .app {
+    display: block;
+    width: 118px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #00a4ff;
+}
+.links {
+    float: right;
+}
+.links dl {
+    float: left;
+    margin-left: 126px;
+}
+.links dl:last-of-type {
+    margin-right: 35px;
+}
+.links dl dt {
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #333;
+}
+.links dl dd a {
+    font-size: 12px;
+    color: #333;
+}
