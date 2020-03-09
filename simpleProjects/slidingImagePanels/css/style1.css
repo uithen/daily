@@ -1,0 +1,83 @@
+/*页面一动画,从左至右的一个动画,需设置span在相框(父div)左侧150px位置并溢出隐藏*/
+.cr-bgimg > div > span {
+	left: -150px;
+}
+
+/*四张span图片从左至右过渡的效果(滑进)*/
+.cr-container
+	> input.cr-selector-img-1:checked
+	~ .cr-bgimg
+	> div
+	> span:nth-child(1),
+.cr-container
+	> input.cr-selector-img-2:checked
+	~ .cr-bgimg
+	> div
+	> span:nth-child(2),
+.cr-container
+	> input.cr-selector-img-3:checked
+	~ .cr-bgimg
+	> div
+	> span:nth-child(3),
+.cr-container
+	> input.cr-selector-img-4:checked
+	~ .cr-bgimg
+	> div
+	> span:nth-child(4) {
+	left: 0;
+	z-index: 99;
+	transition: left 0.5s ease-in-out;
+	/*解除动画冲突*/
+	animation: none;
+}
+
+/*让当前(上面过渡的)图片整体从左至右动画的效果(滑出隐藏)*/
+
+.cr-container > input:checked ~ .cr-bgimg > div > span {
+	animation: slideOut 0.6s ease-in-out;
+}
+
+@keyframes slideOut {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 150px;
+	}
+}
+
+/*文字*/
+.cr-titles > h3 {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	opacity: 0;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	color: #fff;
+	transition: opacity 0.6s ease-in-out;
+	z-index: 9999;
+}
+.cr-titles > h3 > span:nth-child(1) {
+	font-family: 'BebasNeue', Arial, sans-serif;
+	font-size: 70px;
+	display: block;
+	letter-spacing: 7px;
+}
+
+.cr-titles > h3 > span:nth-child(2) {
+	letter-spacing: 0;
+	display: block;
+	background: rgba(104, 171, 194, 0.9);
+	font-size: 14px;
+	padding: 10px;
+	font-style: italic;
+	font-family: Cambria, Palatino, serif;
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-titles > h3:nth-child(1),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-titles > h3:nth-child(2),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-titles > h3:nth-child(3),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-titles > h3:nth-child(4) {
+	opacity: 1;
+}

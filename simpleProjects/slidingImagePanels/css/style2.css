@@ -1,0 +1,95 @@
+/*页面二动画,实现图片"关窗帘"效果,需设置奇偶数span在父div两侧并溢出隐藏*/
+.cr-bgimg div span {
+	left:150px;
+}
+
+.cr-bgimg div:nth-child(odd) span {
+	left:-150px;
+}
+
+/*实现"关窗帘"效果*/
+.cr-container > input.cr-selector-img-1:checked ~ .cr-bgimg > div > span:nth-child(1),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-bgimg > div > span:nth-child(2),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-bgimg > div > span:nth-child(3),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-bgimg > div > span:nth-child(4) {
+	left:0;
+	z-index:10;
+	transition:left .5s ease-in-out;
+	animation:none;
+}
+
+/*由于在过渡的一瞬间,会露出bgimg的底图,这里设置了左右滑动的动画来覆盖*/
+.cr-container > input:checked ~ .cr-bgimg > div:nth-child(odd) > span {
+	animation:slideOutRight .6s ease-in-out;
+}
+
+@keyframes slideOutRight {
+	from {left:0;}
+	to {left:150px;}
+}
+
+.cr-container > input:checked ~ .cr-bgimg > div:nth-child(even) > span {
+	animation:slideOutLeft .6s ease-in-out;
+}
+
+@keyframes slideOutLeft {
+	from {left:0;}
+	to {left:-150px;}
+}
+
+
+
+/*文字*/
+.cr-titles h3 {
+	text-shadow:1px 1px 1px rgba(0,0,0,.1);
+	color:#fff;
+}
+
+.cr-titles h3 span {
+	position:absolute;
+	top:50%;
+	left:0;
+	width:100%;
+	opacity:0;
+	text-align:center;
+	z-index:9999;
+}
+
+.cr-titles h3 span:nth-child(1) {
+	font-family: 'BebasNeue', Arial, sans-serif;
+	font-size:70px;
+	letter-spacing:7px;
+	transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.cr-titles h3 span:nth-child(2) {
+	margin-top:84px;
+	letter-spacing:0;
+	font-size:14px;
+	padding:10px 0;
+	font-style:italic;
+	font-family: Cambria, Palatino, serif;
+	background: rgba(104,171,194,0.9);
+	transition: opacity 0.8s ease-in-out;
+}
+
+/*让所有第一个子标签span缩放0.5倍*/
+.cr-container input:checked ~ .cr-titles h3 span:nth-child(1) {
+	opacity:0;
+	transform:scale(.5);
+}
+/*点击当前的span*/
+.cr-container input.cr-selector-img-1:checked ~ .cr-titles h3:nth-child(1) span:nth-child(1),
+.cr-container input.cr-selector-img-2:checked ~ .cr-titles h3:nth-child(2) span:nth-child(1),
+.cr-container input.cr-selector-img-3:checked ~ .cr-titles h3:nth-child(3) span:nth-child(1),
+.cr-container input.cr-selector-img-4:checked ~ .cr-titles h3:nth-child(4) span:nth-child(1) {
+	opacity:1;
+	transform:scale(1);
+}
+
+.cr-container input.cr-selector-img-1:checked ~ .cr-titles h3:nth-child(1) span:nth-child(2),
+.cr-container input.cr-selector-img-2:checked ~ .cr-titles h3:nth-child(2) span:nth-child(2),
+.cr-container input.cr-selector-img-3:checked ~ .cr-titles h3:nth-child(3) span:nth-child(2),
+.cr-container input.cr-selector-img-4:checked ~ .cr-titles h3:nth-child(4) span:nth-child(2) {
+	opacity:1;
+}

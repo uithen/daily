@@ -1,0 +1,83 @@
+/*页面四动画,图片缩放效果,先设置每个span放大1.5倍并隐藏*/
+.cr-bgimg > div > span {
+	transform:scale(1.5);
+	opacity:0;
+}
+
+ /*显示对应的每个span,并有一个向内缩小的动画*/
+.cr-container > input.cr-selector-img-1:checked ~ .cr-bgimg > div > span:nth-child(1),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-bgimg > div > span:nth-child(2),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-bgimg > div > span:nth-child(3),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-bgimg > div > span:nth-child(4) {
+	opacity:1;
+	transform:scale(1);
+	transition:transform .5s ease-in-out, opacity .5s ease-in-out, z-index 0s linear .6s;
+	z-index:10000;
+	animation:none;
+}
+
+/*设置向外扩张并逐渐消失的动画*/
+.cr-container > input:checked ~ .cr-bgimg > div > span {
+	animation:scaleOut .6s ease-in-out;
+}
+
+@keyframes scaleOut {
+	0% {transform:scale(1); opacity:1;}
+	100% {transform:scale(1.5); opacity:0;}
+}
+
+
+/*文字*/
+.cr-titles h3 {
+	color:#fff;
+	text-shadow:1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.cr-titles h3 span{
+	position:absolute;
+	top:50%;
+	left:0;
+	width:100%;
+	text-align:center;
+	opacity:0;
+	z-index:10000;
+}
+
+.cr-titles h3 span:nth-child(1) {
+	left:0;
+	font-family: 'BebasNeue', Arial, sans-serif;
+	font-size:70px;
+	letter-spacing:7px;
+	/*color:transparent;*/
+	text-shadow:0 0 10px #fff;
+	transition:text-shadow .8s ease-in-out, opacity .8s ease-in-out;
+
+}
+
+.cr-titles h3 span:nth-child(2) {
+	margin-top:84px;
+	letter-spacing:0;
+	font-size:14px;
+	padding:10px 0;
+	font-style:italic;
+	font-family: Cambria, Palatino, Georgia, serif;
+	transition:opacity .8s ease-in-out;
+	background: rgba(104,171,194,.9);
+
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-titles > h3:nth-child(1) > span:nth-child(1),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-titles > h3:nth-child(2) > span:nth-child(1),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-titles > h3:nth-child(3) > span:nth-child(1),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-titles > h3:nth-child(4) > span:nth-child(1) {
+	opacity:1;
+	text-shadow:0 0 1px #fff;
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-titles > h3:nth-child(1) > span:nth-child(2),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-titles > h3:nth-child(2) > span:nth-child(2),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-titles > h3:nth-child(3) > span:nth-child(2),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-titles > h3:nth-child(4) > span:nth-child(2) {
+	opacity:1;
+}
+

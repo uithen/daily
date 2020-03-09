@@ -1,0 +1,257 @@
+@font-face {
+	font-family: 'BebasNeue';
+	src: url('fonts/BebasNeue-webfont.eot') format('eot');
+	src: url('fonts/BebasNeue-webfont.eot') format('eot'),
+		url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+		url('fonts/BebasNeue-webfont.woff') format('woff'),
+		url('fonts/BebasNeue-webfont.svg') format('svg');
+}
+/*Reset*/
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+h1,
+h3 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+section,
+header {
+	display: block;
+}
+
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/*General Demo Style*/
+body {
+	font-family: Cambria, Palatino, 'Palatino LT STD', serif;
+	font-weight: 400;
+	font-size: 15px;
+	color: #3a2127;
+	overflow-y: scroll;
+	background: url(../images/bg.jpg);
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+/* Header & Nav */
+.container > header {
+	padding: 20px 30px 10px;
+	margin: 0 20px 10px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container > header > h1 {
+	font-family: 'BebasNeue', Arial, sans-serif;
+	font-size: 35px;
+	line-height: 35px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	padding-bottom: 5px;
+	color: rgba(26, 89, 120, 0.9);
+}
+
+.container > header > h1 > span {
+	color: #7cbcd6;
+	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.codrops-demos {
+	padding: 14px;
+}
+
+.codrops-demos > a {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05) inset;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	font-weight: 800;
+	font-size: 11px;
+	font-style: italic;
+	margin: 0 3px;
+	color: #fff;
+	background: rgba(104, 171, 194, 0.5);
+}
+
+.codrops-demos > a.current-demo,
+.codrops-demos > a.current-demo:hover {
+	color: rgba(104, 171, 194, 1);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+	background: rgba(255, 255, 255, 0.9);
+}
+
+.codrops-demos > a:hover {
+	background: #4fa2c4;
+}
+
+/* Image Area Outermost */
+.cr-container {
+	position: relative;
+	width: 600px;
+	height: 400px;
+	margin: 0 auto;
+	border: 20px solid #fff;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Label & Radio */
+.cr-container > input {
+	display: none;
+}
+
+.cr-container > label {
+	position: relative;
+	float: left;
+	width: 150px;
+	height: 30px;
+	line-height: 32px;
+	margin-top: 350px;
+	font-style: italic;
+	font-size: 24px;
+	color: #fff;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+/* circle button */
+.cr-container > label::before {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 34px;
+	height: 34px;
+	margin-left: -17px;
+	border-radius: 50%;
+	background: rgba(130, 195, 217, 0.9);
+	box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.3);
+	content: '';
+	z-index: -1;
+}
+
+.cr-container > input:checked + label::before {
+	box-shadow: 0 0 0 4px rgba(104, 171, 194, 0.6);
+	background: #fff;
+}
+
+.cr-container > input:checked + label {
+	color: #68abc2;
+}
+
+/*divide line*/
+.cr-container > label:not(:first-of-type)::after {
+	position: absolute;
+	width: 1px;
+	height: 400px;
+	bottom: -20px;
+	left: 0;
+	content: '';
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.1) 0%,
+		rgba(255, 255, 255, 1) 100%
+	);
+}
+
+/* BGImage */
+.cr-bgimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 600px;
+	height: 400px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	z-index: 1;
+}
+
+.cr-bgimg > div {
+	position: relative;
+	width: 150px;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-repeat: no-repeat;
+}
+
+.cr-bgimg > div > span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-bgimg,
+.cr-bgimg > div > span:nth-child(1) {
+	background: url(../images/1.jpg);
+}
+.cr-container > input.cr-selector-img-2:checked ~ .cr-bgimg,
+.cr-bgimg > div > span:nth-child(2) {
+	background: url(../images/2.jpg);
+}
+.cr-container > input.cr-selector-img-3:checked ~ .cr-bgimg,
+.cr-bgimg > div > span:nth-child(3) {
+	background: url(../images/3.jpg);
+}
+.cr-container > input.cr-selector-img-4:checked ~ .cr-bgimg,
+.cr-bgimg > div > span:nth-child(4) {
+	background: url(../images/4.jpg);
+}
+
+.cr-bgimg > div:nth-child(1) > span {
+	background-position: 0 0;
+}
+.cr-bgimg > div:nth-child(2) > span {
+	background-position: -150px 0;
+}
+.cr-bgimg > div:nth-child(3) > span {
+	background-position: -300px 0;
+}
+.cr-bgimg > div:nth-child(4) > span {
+	background-position: -450px 0;
+}
+
+/* Media Query: 当分辨率低于768时自适应用户屏幕 */
+/* (已手动关闭,如需查看请在HTML页面打开) */
+@media screen and (max-width: 768px) {
+	.cr-container > input {
+		position: relative;
+		display: inline;
+		width: 24%;
+		margin-top: 350px;
+		z-index: 1000;
+	}
+	.cr-container > label {
+		display: none;
+	}
+}

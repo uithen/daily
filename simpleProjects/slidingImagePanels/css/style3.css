@@ -1,0 +1,91 @@
+/*页面三动画,实现图片上下渐入渐出效果,设置奇偶列数span在父div元素top位置并溢出隐藏*/
+.cr-bgimg > div > span {
+	top:400px;
+}
+
+.cr-bgimg > div:nth-child(even) > span {
+	top:-400px;
+}
+
+
+/*上下滑动效果*/
+.cr-container > input.cr-selector-img-1:checked ~ .cr-bgimg > div > span:nth-child(1),
+.cr-container > input.cr-selector-img-2:checked ~ .cr-bgimg > div > span:nth-child(2),
+.cr-container > input.cr-selector-img-3:checked ~ .cr-bgimg > div > span:nth-child(3),
+.cr-container > input.cr-selector-img-4:checked ~ .cr-bgimg > div > span:nth-child(4) {
+	top:0;
+	z-index:10;
+	transition:top .5s ease-in-out;
+	animation:none;
+}
+
+
+/*由于transition的过程中会暴露底图,这里设置了animation来覆盖*/
+.cr-container > input:checked ~ .cr-bgimg > div:nth-child(odd) > span{
+	animation:slideOutUp .6s ease-in-out;
+}
+
+@keyframes slideOutUp {
+	0% {top:0;}
+	100% {top:-400px;}
+}
+
+.cr-container > input:checked ~ .cr-bgimg > div:nth-child(even) > span{
+	animation:slideOutDown .6s ease-in-out;
+}
+
+@keyframes slideOutDown {
+	0% {top:0;}
+	100% {top:400px;}
+}
+
+
+/*文字*/
+.cr-titles h3 {
+	text-shadow:1px 1px 1px rgba(0,0,0,.1);
+	color:#fff;
+}
+
+.cr-titles h3 span {
+	position:absolute;
+	left:0;
+	width:100%;
+	text-align:center;
+	opacity:0;
+	z-index:9999;
+}
+
+.cr-titles h3 span:nth-child(1) {
+	font-family: 'BebasNeue', Arial, sans-serif;
+	top:15%;
+	font-size:70px;
+	letter-spacing:7px;
+	transition:opacity .8s ease-in-out, top .8s ease-in-out;
+}
+
+.cr-titles h3 span:nth-child(2) {
+	top:50%;
+	margin-top:84px;
+	letter-spacing:0;
+	font-size:14px;
+	padding:10px 0;
+	font-style:italic;
+	font-family: Cambria, Palatino, Georgia, serif;
+	transition:opacity .8s ease-in-out;
+	background: rgba(104,171,194,.9);
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-titles > h3:first-child > span:first-child,
+.cr-container > input.cr-selector-img-2:checked ~ .cr-titles > h3:nth-child(2) > span:first-child,
+.cr-container > input.cr-selector-img-3:checked ~ .cr-titles > h3:nth-child(3) > span:first-child,
+.cr-container > input.cr-selector-img-4:checked ~ .cr-titles > h3:last-child > span:first-child {
+	top:50%;
+	opacity:1;
+}
+
+.cr-container > input.cr-selector-img-1:checked ~ .cr-titles > h3:first-child > span:last-child,
+.cr-container > input.cr-selector-img-2:checked ~ .cr-titles > h3:nth-child(2) > span:last-child,
+.cr-container > input.cr-selector-img-3:checked ~ .cr-titles > h3:nth-child(3) > span:last-child,
+.cr-container > input.cr-selector-img-4:checked ~ .cr-titles > h3:last-child > span:last-child {
+	opacity:1;
+}
