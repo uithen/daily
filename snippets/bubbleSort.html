@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>冒泡排序</title>
+	</head>
+	<body>
+		<script>
+			var arr = [11, 2, 12, 17, 13, 6];
+			// 共做arr.length-1轮数的比较(此处为5轮)
+			for (var i = 0; i < arr.length; i++) {
+				// 对每一轮进行排序,每一轮的交换次数从arr.length-1的基础上减去i(比较完一轮,下一轮的交换就会少一次)
+				for (var j = 0; j < arr.length - i; j++) { // 此处写arr.length也对,但arr.length会使程序增加多余的比较次数		
+					// 交换两个变量的值,否则后一个变量始终会覆盖掉前一个变量的值
+					if (arr[j] > arr[j + 1]) {
+						var temp;
+						temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+				}
+			}
+			console.log(arr);  //  [2, 6, 11, 12, 13, 17]
+		</script>
+	</body>
+</html>
