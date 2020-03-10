@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS-乘法表</title>
+		<style>
+			table {
+				margin: auto;
+				border-collapse: collapse;
+				border: 1px solid #ccc;
+			}
+			td {
+				border: 1px solid #ccc;
+				padding: 11px;
+			}
+			caption {
+				padding-bottom: 26px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			document.write('<table>');
+			var tit = 'JS乘法表';
+			document.write('<caption>' + tit + '</caption>');
+			for (var i = 1; i < 10; i++) {
+				document.write('<tr>');
+				for (var j = 1; j <= i; j++) {
+					document.write('<td>' + j + '*' + i + '=' + i * j + '</td>');
+				}
+			}
+		</script>
+	</body>
+</html>
