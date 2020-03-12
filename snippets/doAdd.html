@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现任意数字的求和</title>
+</head>
+<body>
+    <h3>实现任意数字的求和：</h3>
+    <pre>
+        function doAdd() {
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log(doAdd(1,2,3,4,5,6,7,8,9,10));   // 55
+        console.log(doAdd(2,6));    // 8        
+    </pre>
+    <script>
+        function doAdd() {
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        console.log(doAdd(1,2,3,4,5,6,7,8,9,10));   // 55
+        console.log(doAdd(2,6));    // 8
+    </script>
+</body>
+</html>
