@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求任意一组数字平均值</title>
+</head>
+<body>
+    <h3>求任意一组数字平均值：</h3>
+    <pre>
+        function getAvg() {
+            var sum = 0,
+                len = arguments.length;
+            for(var i = 0; i < len; i++) {
+                sum += arguments[i];
+            }
+            return sum /len;
+        }
+        console.log(getAvg(2,6));   // 4
+        console.log(getAvg(11,12,13,11,12,13)); // 12    
+        ...    
+    </pre>
+    <script>
+        function getAvg() {
+            var sum = 0,
+                len = arguments.length;
+            for(var i = 0; i < len; i++) {
+                sum += arguments[i];
+            }
+            return sum /len;
+        }
+        console.log(getAvg(2,6));   // 4
+        console.log(getAvg(11,12,13,11,12,13)); // 12      
+    </script>
+</body>
+</html>
