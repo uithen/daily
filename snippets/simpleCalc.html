@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>简易计算器</title>
+	</head>
+	<body>
+		<script>
+			do {
+				var opt = prompt(
+					'请选择对应数字进行运算操作:\n1.加法运算;\n2.减法运算;\n3.乘法运算;\n4.除法运算;\n5.退出;'
+				);
+				switch (opt) {
+					case '1':
+						var num1 = parseFloat(prompt('请输入一个数值'));
+						var num2 = parseFloat(prompt('请输入另一个数值'));
+						alert(num1 + '加' + num2 + '等于' + doAdd(num1, num2));
+						break;
+					case '2':
+						var num1 = parseFloat(prompt('请输入一个数值'));
+						var num2 = parseFloat(prompt('请输入另一个数值'));
+						alert(num1 + '减' + num2 + '等于' + doSubtract(num1, num2));
+						break;
+					case '3':
+						var num1 = parseFloat(prompt('请输入一个数值'));
+						var num2 = parseFloat(prompt('请输入另一个数值'));
+						alert(num1 + '乘' + num2 + '等于' + doMultiply(num1, num2));
+						break;
+					case '4':
+						var num1 = parseFloat(prompt('请输入一个数值'));
+						var num2 = parseFloat(prompt('请输入另一个数值'));
+						alert(num1 + '除' + num2 + '等于' + doDivide(num1, num2));
+						break;
+					case '5':
+						alert('谢谢使用!');
+						opt = null;
+						break;
+					default:
+						alert('输入有误,请刷新页面重新输入');
+				}
+			} while (
+				opt == '1' ||
+				opt == '2' ||
+				opt == '3' ||
+				opt == '4' ||
+				opt == '5'
+			);
+			function doAdd(num1, num2) {
+				return num1 + num2;
+			}
+			function doSubtract(num1, num2) {
+				return num1 - num2;
+			}
+			function doMultiply(num1, num2) {
+				return num1 * num2;
+			}
+			function doDivide(num1, num2) {
+				return num1 / num2;
+			}
+
+
+            // '?'
+
+			/* function operators(opt) {
+			    var num1 = parseFloat(prompt('请输入一个数值'));
+			    var num2 = parseFloat(prompt('请输入另一个数值'));
+                switch(opt) {
+                    case '1': 
+                    alert(num1 + '加' + num2 + '等于' + doAdd(num1, num2));
+                    break;
+                    case '1': 
+                    alert(num1 + '减' + num2 + '等于' + doSubtract(num1, num2));
+                    break;
+                    case '2': 
+                    alert(num1 + '加' + num2 + '等于' + doAdd(num1, num2));
+                    break;
+                    case '3': 
+                    alert(num1 + '乘' + num2 + '等于' + doMultiply(num1, num2));
+                    break;
+                    case '4': 
+                    alert(num1 + '除' + num2 + '等于' + doDivide(num1, num2));
+                    break;
+                    case '5': 
+                    alert('谢谢使用!');
+			        opt = null;
+                    operators = null;
+                    break;
+                    default: 
+                    alert('输入有误,请刷新页面重新输入');
+			        opt = null;
+			        operators = null;
+                }
+
+			} */
+		</script>
+	</body>
+</html>
