@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>猜数字</title>
+	</head>
+	<body>
+		<script>
+			function getRandom(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			var rdm = getRandom(2, 26);
+			for (var i = 0; i < 10; i++) {
+				var num = parseFloat(prompt('猜数字，请输入一个2到26之间的数字'));
+				if (i == 9) {
+					alert('您已达到最大猜测次数,未能猜中,程序关闭!');
+					break;
+				} else if (num > rdm) {
+					alert('猜大了,您还剩余' + (10 - i - 1) + '次猜测次数');
+				} else if (num < rdm) {
+					alert('猜小了,您还剩余' + (10 - i - 1) + '次猜测次数');
+				} else if (num == rdm) {
+					alert('恭喜猜对!');
+					break;
+				}
+			}
+
+	/* 	1-10之间不限次数猜数
+		var flag = true;
+		while(flag) {
+			var num = parseFloat(prompt('猜数字，请输入1到10之间的数字'));	
+			if(num > rdm) {
+				alert('猜大了');
+			} else if (num < rdm) {
+				alert('猜小了');
+			} else if (num == rdm){
+				alert('恭喜猜对!')
+				flag = false;
+			}
+		}
+	 */
+		</script>
+	</body>
+</html>
