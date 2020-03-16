@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装一个m-n之间随机整数的函数(含mn)</title>
+</head>
+<body>
+    <h3>封装一个m-n之间随机整数的函数(含mn):</h3>
+    <pre>
+        function getRandom(min, max) {
+            var choices = max - min + 1;
+            return Math.floor(Math.random() * choices + min);
+        }
+        console.log(getRandom(2, 26));        
+    </pre>
+    <script>
+        function getRandom(min, max) {
+            // 获取m到n之间可能出现任意整数的个数
+            var choices = max - min + 1;
+            // 当random为0时,要想取到最小数m,需要+m
+            // 当random为较大值(可能0.99999),要想取到最大值n,需要floor向下取整
+            return Math.floor(Math.random() * choices + min);
+        }
+        console.log(getRandom(2, 26));
+        
+    </script>
+</body>
+</html>
