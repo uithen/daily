@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装实现数组indexOf的函数</title>
+</head>
+<body>
+    <script>
+        function indexOfarr(arr, arrItem) {
+            for(var i = 0; i < arr.length; i++) {
+                if(arr[i] === arrItem) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        var colors = ['red', 'green', 'blue'];
+        console.log(indexOfarr(colors, 'green'));   // 1
+        console.log(indexOfarr(colors, 'pink'));    // -1
+    </script>
+</body>
+</html>
