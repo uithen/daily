@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现一个数组对另一个数组的拷贝</title>
+</head>
+<body>
+    <script>
+        var arr = ['r', 'g', 'b'];
+        // 方法一: 
+        var arr1 = arr.slice(0);
+        // 方法二: 
+        var arr2 = [].concat(arr);
+        // 方法三: 
+        var arr3 = [];
+        for(var i = 0; i < arr.length; i++) {
+            arr3.push(arr[i]);
+        }
+        // 方法四: 此方法会改变原数组
+        var colors = ['r', 'g', 'b'];
+        var arr4 = colors.splice(0, colors.length);
+    </script>
+</body>
+</html>
