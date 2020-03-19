@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装一个实现数组reverse方法的函数</title>
+</head>
+<body>
+    <script>
+        // 方法一: unshift
+        // function reverseArr(arr) {
+        //     newArr = [];
+        //     for(var i = 0; i < arr.length; i++) {
+        //         newArr.unshift(arr[i]);
+        //     }
+        //     return newArr
+        // }
+        
+        // 方法二: 从数组尾部倒序添加
+
+        function reverseArr(arr) {
+            var newArr = [];   
+            var j = 0;
+            for(var i = arr.length - 1; i >= 0; i--) {
+                // newArr[j++] = arr[i];
+                newArr[newArr.length] = arr[i];
+            }   
+            return newArr;
+        } 
+        var arr = [2,6,11,12,13,17];
+        console.log(reverseArr(arr));   // [17, 13, 12, 11, 6, 2]
+        
+    </script>
+</body>
+</html>
