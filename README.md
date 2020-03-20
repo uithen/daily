@@ -21,6 +21,7 @@
 - [静态页面二](https://uithen.github.io/daily/staticPages/page3/)
 - [静态页面三](https://uithen.github.io/daily/staticPages/page4/)
 - [CSS3旋转立方体](https://uithen.github.io/daily/animation/rotatingCube)
+- [CSS计数器](https://uithen.github.io/daily/CSSCounter/selected)
 - [CSS3蓝天白云](https://uithen.github.io/daily/animation/bluesky)
 - [CSS3相册](https://uithen.github.io/daily/simpleProjects/slidingImagePanels/)
 
