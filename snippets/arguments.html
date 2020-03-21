@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>深入理解arguments行为</title>
+	</head>
+	<body>
+		<script>
+			function fn(a, b) {
+				// 1. arguments和传入的实参个数相对应,修改它们任何一个都会同步
+				// 此时可以当成 a == arguments[0](只是值同步而已,它们还是两个不同的内存空间)
+				var a = 2;
+				console.log(a); // 2
+				arguments[0] = 3;
+				console.log(a); // 3
+				// 2. 当它们不对应时(并没有传入实参b),值不会同步
+				// 此时b != arguments[1],引用了各自内存空间的值
+				arguments[1] = 2;
+				console.log(arguments[1]); // 2
+				console.log(b); // undefined
+				// 3. 尽管显式的在内部为b赋值,但它们的值也不会再同步,因为调用函数的时候没有传b
+				// 引用的都是各自的值,不会再同步
+				b = 1;
+				console.log(b); //1
+				arguments[1] = 3;
+				console.log(arguments[1]); // 3
+				console.log(b); // 1
+				console.log(a + b); // 4
+				console.log(arguments[0] + arguments[1]); // 6
+			}
+			fn(1);
+		</script>
+	</body>
+</html>
