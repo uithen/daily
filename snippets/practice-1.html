@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>practice-1</title>
+	</head>
+	<body>
+		<script>
+			// 1. 定义一组函数,输入数字,逆转并输出汉字形式
+			var num = prompt('输入数字,将逆转并输出数字的汉字形式');
+			function reverse() {
+				var str = '';
+				for (var i = num.length - 1; i >= 0; i--) {
+					str += transfer(num.charAt(i));
+				}
+				document.write(str);
+			}
+			// 转换为汉字
+			function transfer(target) {
+				switch (target) {
+					case '1':
+						return '壹';
+					case '2':
+						return '贰';
+					case '3':
+						return '叁';
+					case '4':
+						return '肆';
+					case '5':
+						return '伍';
+					case '6':
+						return '陆';
+					case '7':
+						return '柒';
+					case '8':
+						return '捌';
+					case '9':
+						return '玖';
+					default:
+						return '零';
+				}
+			}
+			reverse();
+
+			// 2. 写一个实现n阶乘的函数
+			/* 		var num = prompt('您想求几的阶乘?');
+		function factorial(num) {
+			if(num == 1 || num == 0) {
+				return 1;
+			} else {
+				return num * factorial(num - 1);
+			}
+		}
+		alert(num + '的阶乘为 ' + f(num)); */
+			// 3. 写一个函数实现斐波那契数列
+			/* 		var num = prompt('求一个数字的求斐波那契数列');
+		function fibonacci(num) {
+			if(num == 1 || num == 2) {
+				return 1;
+			} else {
+				return fibonacci(num - 1) + fibonacci(num - 2);
+			}
+		}
+		alert(fibonacci(num)); */
+		</script>
+	</body>
+</html>
