@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求质数</title>
+</head>
+<body>
+    <script>
+        			// 1. 用户输入版
+			/* 			
+			var num = prompt('请输入一个数大于1的整数');
+			if (num > 1) {
+				// 默认当前num都是质数
+				var flag = true;
+				// 求证某个数是否是不是质数,刨除1与自身外,与该数区间的数比较(2-num)
+				for (var i = 2; i < num; i++) {
+					// 判断num是否被i整除
+					if (num % i == 0) {
+					// 该数区间任何一个num如果能被i整除,则一定不是质数,设置flag为false
+						flag = false;
+					}
+				}
+				// 如果区间所有num都不能被i整除,则为质数
+				if (flag) {
+					alert(num + '是质数');
+				} else {
+					alert(num + '不是质数');
+				}
+			} else {
+				alert('请输入一个数大于1的整数');
+			} */
+
+			/* 			// 2. 打印100以内的所有质数
+			var count = 0;	//保存i被整除的次数
+			for(var i = 2; i <= 100; i++) {
+				for(var j = 1; j <= Math.sqrt(i); j++) {
+					if(i % j == 0) {
+						count++;
+					}
+				}
+				// 每个数都至少被自身和1整除一次,则超过两次即为合数
+				// 由于使用了开方函数,判断不到数字本身,则此处每个数超过一次即为合数
+				if(count == 1) {
+					console.log(i);
+				}
+				count = 0;
+			} */
+
+			/* *
+			 * 测试程序运行时长
+			 *	console.time('计时器名称')可以用来开启一个计时器
+			 *	该命令需要一个字符串参数,作为计时器的标识
+			 */
+			console.time('test');
+			// 3. 打印100以内的所有质数(反证法)
+			// 遍历100以内的所有数
+			for (var i = 2; i <= 100; i++) {
+				// 创建一个布尔值用来保存结果,默认i是质数
+				var flag = true;
+				// 获取2-i之间的所有数,判断i是否是质数
+				for (var j = 2; j <= Math.sqrt(i); j++) {
+					//如判断16是否是质数,判断到了4就不能继续判断了,因为后面都是重复的(其实这里sqrt写不写都一样,因为下面有个break语句,可能还没执行到开方的那个数就已经进行下轮循环了)
+					if (i % j == 0) {
+						flag = false;
+						// 一旦进入判断,则说明i不可能是质数了(例50%2==0),此时还往后判断无疑增添程序的负担
+						break;
+					}
+				}
+				// 如果是质数,打印i的值
+				if (flag) {
+					console.log(i);
+				}
+			}
+			// 终止计时器
+			console.timeEnd('test');
+			// 为了测试性能,在注释掉了console.log(i)这行,并且在i=10000基础上的测试结果:
+			// 未用break,Math.sqrt()方法,程序运行时长在380ms左右
+			// 优化1:未用Math.sqrt()方法,使用break,程序运行时长在60ms左右
+			// 优化2:使用Math.sqrt()方法,使用break,程序运行时长在6ms左右 */
+    </script>
+</body>
+</html>
