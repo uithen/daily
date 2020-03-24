@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求任意一串字符串的字节长度</title>
+</head>
+<body>
+    <script>
+        // 若当前字符位的Unicode > 255,该字符字节长度为2, <= 255 为 1
+        function getBytesLen(str) {
+            // 方法一: 
+/*             var count = 0;
+            for(var i = 0; i < str.length; i++) {
+                if(str.charCodeAt(i) > 255) {
+                    count += 2;
+                } else {
+                    count++;
+                }
+            }
+            console.log('该字符串字符长度为 ' + count); */
+            // 方法二: 
+            var len = str.length;
+            for(var i = 0; i < len; i++) {
+                if(str.charCodeAt(i) > 255) {
+                    len++;
+                }
+            }
+            console.log('该字符串字符长度为 ' + len); 
+        }
+        var str = '我爱你 China.'
+        getBytesLen(str);
+
+    </script>
+</body>
+</html>
