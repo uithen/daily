@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>封装一个全类型识别的函数</title>
+	</head>
+	<body>
+		<script>
+			function getConsName(obj) {
+				return obj === undefined || obj === null
+					? obj
+					: (
+							obj.constructor &&
+							obj.constructor.toString().match(/function\s*([^(]*)/)[1]
+					  ).toLowerCase();
+			}
+            
+			function Person() {}
+			getConsName(undefined); // 'undefined'
+			getConsName(null); // 'null'
+			getConsName(0); // 'number'
+			getConsName(NaN); // 'number'
+			getConsName(''); // 'string'
+			getConsName(false); // 'boolean'
+			getConsName([]); // 'array'
+			getConsName(new Date()); // 'date'
+			getConsName(new Person()); // 'person'
+		</script>
+	</body>
+</html>
