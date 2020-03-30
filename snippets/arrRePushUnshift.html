@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重写数组的push和unshift方法</title>
+</head>
+<body>
+    <script>
+        		// 1. 数组的push,unshift方法分别在尾部和头部添加数组项
+				// 2. 这俩方法都会修改原数组并且返回修改后的原数组的长度
+				// 3. 不传参的情况下,返回当前原数组长度
+
+			// 模拟数组的push方法
+			Array.prototype.push = function() {
+				for(var i = 0; i < arguments.length; i++) {
+					this[this.length] = arguments[i];
+				}
+				return this.length;
+			}
+
+			// 模拟数组的unshift方法
+			Array.prototype.unshift = function() {
+				for(var i = arguments.length - 1; i >= 0; i--) {
+					if(this.length == 0) {
+						this[0] = arguments[i];
+					}else {
+						this[this.length] = this[this.length - 1];
+						this[this.length - 1] = arguments[i];
+					}
+				}
+				return this.length;
+			}
+
+			var arr = [];
+    </script>
+</body>
+</html>
