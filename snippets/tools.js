@@ -31,3 +31,16 @@ Array.prototype.unique = function() {
     }
     return arr;
 }
+// 求一组随机字符串中第一次出现的唯一的字符
+function fstStr(str) {
+    var templ = {};
+    for(var i = 0; i < str.length; i++) {
+        templ[str.charAt(i)] ? templ[str.charAt(i)]++ : templ[str.charAt(i)] = 1;
+    }
+    for(var prop in templ) {
+        if(templ[prop] == 1) {
+            console.log(prop);
+            break;
+        }
+    }
+}
