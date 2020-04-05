@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>时间戳</title>
+	</head>
+	<body>
+		<script>
+			function countDown(time) {
+				var nowTime = +new Date();
+				var inputTime = +new Date(time);
+				var times = (inputTime - nowTime) / 1000;
+				var d = parseInt(times / 60 / 60 / 24),
+					h = parseInt((times / 60 / 60) % 24),
+					m = parseInt((times / 60) % 60),
+					s = parseInt(times % 60);
+				return (
+					padding(d) +
+					'天' +
+					padding(h) +
+					'小时' +
+					padding(m) +
+					'分' +
+					padding(s) +
+					'秒'
+				);
+			}
+			function padding(num) {
+				return num < 10 ? '0' + num : '' + num;
+			}
+			console.log('距J的下一个生日还有' + countDown('2021-3-18'));
+		</script>
+	</body>
+</html>
