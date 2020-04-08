@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>初始DOM-控制盒子</title>
+	</head>
+
+	<body>
+		<button
+			style="
+				width: 117px;
+				height: 62px;
+				background: linear-gradient(
+					to left,
+					rgb(235, 167, 167),
+					rgb(224, 185, 200),
+					rgb(158, 134, 110),
+					#fcc
+				);
+				position: fixed;
+				top: 50%;
+				right: 0;
+				color: #fff;
+				font-size: 16px;
+			"
+		>
+			点我加速
+		</button>
+		<script>
+			// 创建DIV
+			var div = document.createElement('div');
+			div.style.width = '126px';
+			div.style.height = '126px';
+			div.style.background = 'pink';
+			div.style.position = 'absolute';
+			div.style.left = '0';
+			div.style.top = '0';
+			div.textContent = '上下左右控制我,点击右侧按钮加速,空格键复原';
+			div.style.color = '#fff';
+			document.body.appendChild(div);
+			// 点击加速
+			var btn = document.getElementsByTagName('button')[0];
+			var speed = 2;
+			btn.onclick = function () {
+				speed += 6;
+			};
+			// 方向键控制
+			document.onkeydown = function (e) {
+				switch (e.which) {
+					case 38:
+						div.style.top = parseInt(div.style.top) - speed + 'px';
+						break;
+					case 40:
+						div.style.top = parseInt(div.style.top) + speed + 'px';
+						break;
+					case 37:
+						div.style.left = parseInt(div.style.left) - speed + 'px';
+						break;
+					case 39:
+						div.style.left = parseInt(div.style.left) + speed + 'px';
+						break;
+					case 32:
+						div.style.left = '0';
+						div.style.top = '0';
+						speed = 2;
+				}
+			};
+		</script>
+	</body>
+</html>
