@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>实现children方法</title>
+	</head>
+	<body>
+		<ul class="abc">
+			abc
+			<!-- 132 -->
+			<li>ietm1</li>
+			<li>ietm2</li>
+			<li>ietm3</li>
+			<li>ietm4</li>
+			<li>ietm5</li>
+			<li>ietm6</li>
+			<li>ietm7</li>
+			<li>ietm8</li>
+			<li>ietm9</li>
+			<li>ietm10</li>
+		</ul>
+		<script>
+			// 添加一个实现children的方法
+			Element.prototype.myChildren = function () {
+				const elemChild = this.childNodes,
+					  len = elemChild.length,
+					  templ = {
+						  length: 0,
+						  splice: Array.prototype.splice,
+						  push: Array.prototype.push 
+					  }
+				for (var i = 0; i < len; i++) {
+					if (elemChild[i].nodeType === 1) {
+						templ.push(elemChild[i])
+					}
+				}
+				return templ
+			}
+			const ul = document.getElementsByTagName('ul')[0]
+			const mc = ul.myChildren()
+		</script>
+	</body>
+</html>
