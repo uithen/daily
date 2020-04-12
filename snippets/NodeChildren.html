@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>实现children方法</title>
+		<title>为Element添加children/hasChildren方法</title>
 	</head>
 	<body>
 		<ul class="abc">
@@ -21,7 +21,7 @@
 			<li>ietm10</li>
 		</ul>
 		<script>
-			// 添加一个实现children的方法
+			// 添加一个实现children/hasChildren的方法
 			Element.prototype.myChildren = function () {
 				const elemChild = this.childNodes,
 					  len = elemChild.length,
@@ -33,9 +33,15 @@
 				for (var i = 0; i < len; i++) {
 					if (elemChild[i].nodeType === 1) {
 						templ.push(elemChild[i])
+
+						// hasChildren方法
+						// return true
 					}
 				}
 				return templ
+
+				// hasChildren方法
+				// return false 
 			}
 			const ul = document.getElementsByTagName('ul')[0]
 			const mc = ul.myChildren()
