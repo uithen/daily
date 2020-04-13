@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>getStyle</title>
+	</head>
+	<body>
+		<script>
+            // ie8以下getComputedStyle的兼容
+			function getStyle(elem, prop) {
+				if (window.getComputedStyle) {
+					return window.getComputedStyle(elem, null)[prop]
+				} else {
+					return elem.currentStyle[prop]
+				}
+			}
+		</script>
+	</body>
+</html>
