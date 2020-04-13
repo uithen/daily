@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>getElementSibling</title>
+	</head>
+	<body>
+		<ul class="abc">
+			abc
+			<!-- 132 -->
+			<li>ietm1</li>
+			<li>ietm2</li>
+			<li>ietm3</li>
+			<li>ietm4</li>
+			<li>ietm5</li>
+			<li>ietm6</li>
+			<li>ietm7</li>
+			<li>ietm8</li>
+			<li>ietm9</li>
+			<li>ietm10</li>
+		</ul>
+		<script>
+			// 封装一个获取兄弟元素节点函数,兼容到IE9
+			// 传入elem,若n为正数则返回对应数字的elem后续兄弟元素节点,负数返回前面的,0返回自己
+			function getElementSibling(elem, n) {
+				while (elem && n) {
+					if (n > 0) {
+						if (elem.nextElementSibling) {
+							elem = elem.nextElementSibling
+						} else {
+							for (
+								elem = elem.nextSibling;
+								elem && elem.nodeType !== 1;
+								elem = elem.nextSibling
+							)  // for若没有执行体,可省略{}	
+						  ;}
+						  n--
+					} else {
+						if (elem.previousElementSibling) {
+							elem = elem.previousElementSibling
+						} else {
+							for (
+								elem = elem.previousSibling;
+								elem && elem.nodeType !== 1;
+								elem = elem.previousSibling
+							)
+						 ;}
+						n++
+					}
+				}
+				return elem 
+			}
+			const li = document.getElementsByTagName('ul')[0].children[4]
+			getElementSibling(li, 2) 
+		</script>
+	</body>
+</html>
