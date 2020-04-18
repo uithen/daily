@@ -10,6 +10,9 @@ body {
     background: #eee;
     height: 2000px;
 }
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 ul {
     margin: 0;
     padding: 0;
@@ -17,7 +20,6 @@ ul {
 }
 a {
     text-decoration: none;
-    -webkit-tap-highlight-color: none;
 }
 
 /* app  */
@@ -58,9 +60,15 @@ a {
 /* search  */
 .search-wrap {
     position: relative;
+    /* position: fixed; */
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    z-index: 1;
     height: 44px;
     line-height: 44px;
     overflow: hidden;
+    background-image: linear-gradient(0deg,#f1503b,#c82519 0);
 }
 
 .search-btn,
@@ -86,15 +94,177 @@ a {
     background-size: 20px 18px;
 }
 .search {
+    position: relative;
+    overflow: hidden;
     height: 30px;
     margin: 7px 50px 0;
     border-radius: 15px;
     background-color: #fff;
 }
-/* .search {
-    |
-} */
+.search .jd-icon {
+    position: relative;
+    width: 20px;
+    height: 15px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+    margin: 8px 8px 0 15px;
+}
+.search .jd-icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 26px;
+    height: 16px;
+    border-right: 1px solid #ddd;
+}
+.search .search-icon {
+    position: absolute;
+    top: 8px;
+    left: 48px;
+    width: 18px;
+    height: 15px;
+    background: url(../images/jd-sprites.png) no-repeat;
+    background-position: -80px 0;
+    background-size: 200px;
+}
 .search-login {
     right: 0;
     color: #fff;
+}
+.slider {
+    position: relative;
+    width: 350px;
+    height: 140px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #ccc;
+
+}
+.slider img {
+    width: 100%;
+    height: 100%;
+}
+
+/* slider-wrapper */
+.slider-wrapper {
+    position: relative;
+    /* padding-top: 44px; */
+    height: 143px;
+}
+.slider-bg {
+    width: 150%;
+    height: 145px;
+    background-image: linear-gradient(0deg,#f1503b,#c82519 50%);
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: -25%;
+}
+
+/* 主体 */
+.main-content {
+
+}
+.main-content nav {
+    height: 162px;
+
+}
+.main-content nav a {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 10px;
+}
+.main-content nav a img {
+    width: 40px;
+    height: 40px;
+}
+.main-content nav a span {
+    display: block;
+    margin: 6px 0px 0px;
+    font-size: 12px;
+    color: #666;
+}
+
+.promo {
+    margin: 10px;
+    overflow: hidden;
+}
+.promo a {
+    float: left;
+    width: 50%;
+}
+.promo a img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+.promo a:first-child img{
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.promo a:last-child img {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* guess you like */
+.ulike {
+    margin: 10px
+}
+.ulike > img {
+    width: 100%;
+    height: 35px;
+}
+/* .ulike ul {
+    width: 100%;
+
+} */
+.ulike ul li {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 267px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-bottom: 10px solid #eee
+}
+.ulike ul li:nth-child(odd) {
+    border-right: 10px solid #eee;
+}
+.ulike ul li img {
+    width: 100%;
+    height: 176px;
+}
+.ulike ul li .tit {
+    color: #000;
+    padding-left: 5px;
+}
+.ulike ul li .desc {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    margin-top: 3px;
+    height: 26px;
+    line-height: 26px;
+}
+.desc .price {
+    color: #f23030;
+    font-size: 16px;
+    line-height: 26px;
+}
+.desc .alike {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    width: 49px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 12px;
 }
