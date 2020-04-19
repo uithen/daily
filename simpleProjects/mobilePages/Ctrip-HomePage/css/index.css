@@ -1,0 +1,249 @@
+body {
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: 400 16px/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei";
+    background: #fafafc;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+
+/* 页面顶部是搜索 */
+.search-top {
+    display: flex;
+    /* justify-content: center; */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    height: 44px;
+    padding-left: 12px;
+}
+.search-top::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,0));
+ }
+.search-top .search {
+    flex: 1;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 8px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+.search-top .search  span {
+    padding-left: 35px;
+    overflow: hidden;
+    font-size: .94rem;
+    color: #666;
+}
+.search-top .search span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 100%;
+    background: url(../images/home-common-sprite2x@v7.15.png) 20px 15px no-repeat;
+    background-size: 21px;
+}
+.search-top .user {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 51px;
+    height: 44px;
+    box-sizing: border-box;
+    padding-right: 4px;
+    font-size: 12px;
+    color: #fff;
+}
+.search-top .user::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 1px;
+    background: url(../images/home-common-sprite2x@v7.15.png) no-repeat;
+    background-position: 1px -36px;
+    background-size: 21px auto;
+}
+
+/* 顶部背景图 */
+.img-wrap {
+    height: 260px;
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    overflow: hidden;
+}
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 局部导航 */
+.local-nav {
+    display: flex;
+    position: relative;
+    margin: -52px 12px 10px;
+    padding: 4px 0 8px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.local-nav li {
+    flex: 1;
+}
+.local-nav li a {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.local-nav li:nth-child(1) a span:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    background: url(../images/home-fivemain-sprite2x@v7.15.png) no-repeat;
+    background-size: 40px auto;
+}
+.local-nav li a span:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    background: url(../images/home-fivemain-sprite2x@v7.15.png) no-repeat;    
+    background-size: 40px auto;
+}
+.local-nav li:nth-child(2) a span:nth-child(1) {
+    background-position: 0 -40px;
+}
+.local-nav li:nth-child(3) a span:nth-child(1) {
+    background-position: 0 -80px;
+}
+.local-nav li:nth-child(4) a span:nth-child(1) {
+    background-position: 0 -120px;
+}
+.local-nav li:nth-child(5) a span:nth-child(1) {
+    background-position: 0 -160px;
+}
+
+.local-nav li a span:nth-child(2) {
+    font-size: 12px;
+    line-height: 1;
+    color: #222;
+}
+
+/* 主导航  */
+.grid-nav {
+    margin: 0 12px 1px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.grid-nav a {
+    color: #fff;
+    align-items: stretch;
+    border-left: 1px solid #fafafc;
+}
+.grid-nav .hotel,
+.grid-nav .flight,
+.grid-nav .travel {
+    display: flex;
+    height: 66px;
+    text-align: center;
+}
+.grid-nav .hotel {
+    background: linear-gradient(to right,#fa5956,#fb8650 54%);
+    border-bottom: 1px solid #fafafc;
+}
+.grid-nav .flight {
+    background: linear-gradient(to right,#4b8fed,#53bced);
+    border-bottom: 1px solid #fafafc;
+}
+.grid-nav .travel {
+    background: linear-gradient(to right,#34c2aa,#6cd557);
+}
+
+.grid-nav div a:nth-child(1){
+    flex: 0 1 31%;
+    background: url(../images/grid-nav-items-hotel@v7.15.png) no-repeat;
+    background-size: contain;
+    align-self: center;
+}
+.grid-nav div a:nth-child(2),
+.grid-nav div a:nth-child(3),
+.grid-nav div a:nth-child(4){
+    flex: 0 1 23%;
+    background: url(../images/grid-nav-items-travel@v7.15.png) no-repeat;
+    background-size: contain;
+    align-self: center;
+}
+.grid-nav .hotel a:nth-child(3){
+    flex: 0 1 46%;
+    align-self: center;
+    background: transparent;
+}
+
+/* 子导航 */
+.subnav {
+    margin: 0 12px 12px;
+    padding: 0;
+    overflow: hidden;
+}
+.subnav li {
+    float: left;
+    width: 20%;
+}
+.subnav a {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #222;
+    font-size: .63rem;
+    line-height: 1;
+}
+.subnav a span:first-child {
+    width: 28px;
+    height: 28px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    background: url(../images/un_ico_subnav2x@v7.152.png) no-repeat;
+    background-size: 28px auto;
+}
+
+/* 页面底部  */
+.tool-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 61px;
+    box-sizing: border-box;
+    border-top: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2;
+}
+.tool-box a {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #333;
+    font-size: 12px;
+}
+.tool-box a span:first-child {
+    width: 22px;
+    height: 22px;
+    background: url(../images/home-common-sprite2x@v7.15.png) no-repeat 1px -78px;
+    background-size: 21px auto;
+}
