@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>单选复选</title>
+	<style>
+		table {
+			margin: 0 auto;
+			width: 226px;
+		}
+		table,td {
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+		}
+		td {
+			padding: 11px;
+		}
+		thead tr {
+			background-color: pink;
+		}
+		
+	</style>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td><input type="checkbox" class="all"></td>
+				<td>型号</td>
+				<td>价钱</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" class="check"></td>
+				<td>小米 10</td>
+				<td>4000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="check"></td>
+				<td>小米 10</td>
+				<td>4000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="check"></td>
+				<td>小米 10</td>
+				<td>4000</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		const tr = document.querySelectorAll('tbody tr')
+		const all = document.getElementsByClassName('all')[0]		
+		const check = document.getElementsByClassName('check')
+		
+
+		all.addEventListener('click', function (e) {
+			for (var i = 0; i < check.length; i++) {
+				check[i].checked = this.checked
+			}
+		})
+
+		for (var i = 0; i < check.length; i++) {
+			check[i].addEventListener('click', function () {
+				let flag = true 
+				for (var i = 0; i < check.length; i++) {
+					if (!check[i].checked) {
+						flag = false 
+					} 
+				}
+				all.checked = flag 
+				})
+		}
+		
+		for (var i = 0; i < tr.length; i++) {
+			tr[i].onmouseenter = function () {
+				this.style.backgroundColor = 'skyblue'
+			}
+			
+			tr[i].onmouseleave = function () {
+				this.style.backgroundColor = ''
+			}
+
+		}
+		
+	</script>
+</body>
+</html>
