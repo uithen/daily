@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>模拟动态拉取数据</title>
+	<style>
+		table {
+			margin: 26px auto;
+			text-align: center;
+		}
+		table,
+		th,
+		td {
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+			padding: 11px 26px;
+		}
+		thead tr {
+			background: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>subject</th>
+				<th>score</th>
+				<th>operate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- <tr>
+				<td>123</td>
+			</tr> -->
+		</tbody>
+	</table>
+	<script>
+		// 模拟数据
+		const data = [
+			{
+				name: 'Jack',
+				subject: 'javascript',
+				score: 93
+			},
+			
+			{
+				name: 'Mary',
+				subject: 'javascript',
+				score: 92
+			},
+			{
+				name: 'John',
+				subject: 'javascript',
+				score: 59
+			},
+			{
+				name: 'Berry',
+				subject: 'javascript',
+				score: 60
+			}
+		]
+		const tb = document.querySelector('tbody')
+		// 动态生成单元格
+		for (var i = 0; i < data.length; i++) {
+			// 数据单元格
+			const tr = document.createElement('tr')
+			tb.appendChild(tr)
+			for (let prop in data[i]) {
+				const td = document.createElement('td')
+				td.innerText = data[i][prop]
+				tr.appendChild(td)
+			}
+			// 删除操作单元格
+			const del = document.createElement('td')
+				del.innerHTML = '<a href="javascript:;"> 删除 </a>'
+				tr.appendChild(del)
+		}
+		// 注册点击事件删除数据
+		const del = document.querySelectorAll('tbody a')
+		for (var i = 0; i < del.length; i++) {
+			del[i].addEventListener('click', function () {
+				// this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+				tb.removeChild(this.parentNode.parentNode)
+			})
+		}
+		
+		
+	</script>
+</body>
+</html>
