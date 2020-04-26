@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>京东商品页放大镜实现</title>
+	<style>
+		.goods {
+			position: relative;
+			width: 414px;
+			height: 414px;
+			border: 1px solid #eee;
+			margin: 26px 127px;
+			cursor: move;
+		}
+		.smimg {
+			width: 100%;
+			height: 100%;
+		}
+		.mask {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 226px;
+			height: 226px;
+			background-color: #fede4f;
+			opacity: .5;
+			border: 1px solid #aaa;
+		}
+		.zoomdiv {
+			display: none;
+			position: absolute;
+			top: -1px;
+			left: 452px;
+			width: 550px;
+			height: 550px;
+			border: 1px solid #eee;
+			overflow: hidden;
+		}
+		.bigimg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="goods">
+		<img src="imgs/ise.jpg" alt="" class="smimg">
+		<div class="mask"></div>
+		<div class="zoomdiv">
+			<img src="imgs/bigise.jpg" alt="" class="bigimg">
+		</div>
+	</div>
+	<script>
+		var goods = document.querySelector('.goods')
+		var mask = document.querySelector('.mask')
+		var zoomdiv = document.querySelector('.zoomdiv')
+		var bigimg = document.querySelector('.bigimg')
+
+		goods.addEventListener('mouseenter', function (e) {
+			mask.style.display = 'block'
+			zoomdiv.style.display = 'block'
+
+		})
+		goods.addEventListener('mouseleave', function () {
+				mask.style.display = 'none'
+				zoomdiv.style.display = 'none'
+		})
+		goods.addEventListener('mousemove', show)
+		function show(e) {
+			var x = e.pageX - this.offsetLeft
+			var y = e.pageY - this.offsetTop
+			// 遮挡层(放大镜)坐标
+			var maskY = y - mask.offsetHeight / 2
+			var maskX = x - mask.offsetWidth / 2
+			// 禁止遮挡层超出盒子范围,遮挡层最大移动距离,限制范围
+			var maskMax = goods.offsetHeight - mask.offsetHeight // 由于是正方形的,宽高都一样
+			if (maskY <= 0) {
+				maskY = 0
+			} else if (maskY >= maskMax) {
+				maskY = maskMax
+			}
+			if(maskX <= 0) {
+				maskX = 0
+			} else if(maskX >= maskMax) {
+				maskX =maskMax
+			}
+			// 遮罩层
+			mask.style.top = maskY + 'px'
+			mask.style.left = maskX + 'px'
+
+			// 大图最大移动距离
+			// var bigMax = zoomdiv.offsetWidth - bigimg.offsetWidth
+			var bigMax = bigimg.offsetWidth - zoomdiv.offsetWidth
+			// 大图实时坐标 = 遮挡层坐标 * 大图最大移动距离 / 遮挡层最大移动距离
+			var bigX = maskX * bigMax / maskMax
+			var bigY = maskY * bigMax / maskMax
+			// console.log(bigimg.style.backgroundPosition)
+			bigimg.style.left = - bigX + 'px' 
+			bigimg.style.top = - bigY * 2 + 'px' 
+		}
+	</script>
+</body>
+</html>
