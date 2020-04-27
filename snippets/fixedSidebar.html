@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>淘宝右侧栏固定实现</title>
+	<style>
+		.header,
+		.main {
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.header {
+			height: 226px;
+			background: pink;
+			margin-bottom: 11px;
+		}
+		.main1 {
+			height: 400px;
+			background: #abcdef;
+			margin-bottom: 11px;
+		}
+		.main2 {
+			height: 600px;
+			background: pink;
+		}
+		.attch {
+			position: absolute;
+			top: 300px;
+			left: 50%;
+			margin-left: 600px;
+			width: 45px;
+			height: 126px;
+			background: pink;
+		}
+		.gotop {
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="main">
+		<div class="main1"></div>
+		<div class="main2"></div>
+	</div>
+	<div class="attch">
+		<div class="gotop">Top</div>
+	</div>
+	<script>
+		var main1 = document.querySelector('.main1')
+		var attch = document.querySelector('.attch')
+		var gotop = document.querySelector('.gotop')
+		var mainTop = main1.offsetTop
+		var attchTop = attch.offsetTop
+		var attchPos = attchTop - mainTop
+		document.addEventListener('scroll', function () {
+			// 右侧栏固定
+			if (window.pageYOffset >= mainTop) {
+				attch.style.position = 'fixed'
+				attch.style.top = attchPos + 'px'
+				// 显示返回顶部
+				gotop.style.display = 'block'
+			} else {
+				attch.style.position = 'absolute'
+				attch.style.top = '300px'
+				gotop.style.display = 'none'
+			}
+		})
+	</script>
+</body>
+</html>
