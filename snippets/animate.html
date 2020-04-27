@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animate</title>
+	<style>
+		div {
+			position: absolute;
+			top: 31px;
+			width: 126px;
+			height: 126px;
+			background: pink;
+		}
+		span {
+			position: absolute;
+			top: 200px;
+			width: 126px;
+			height: 126px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<span>2</span>
+	<button>600px</button>
+	<button>1000px</button>
+	<script>
+		var div = document.querySelector('div')
+		var span = document.querySelector('span')
+		var btn1 = document.querySelectorAll('button')[0]
+		var btn2 = document.querySelectorAll('button')[1]
+		/**
+		 * @ params:
+		 	elem: 需要做动画的元素
+			rate: 动画的运行曲线
+			distance: 动画的运行距离
+			ms: 定时器调用毫秒数 
+		 */
+		
+		function animate(elem, rate, distance, ms) {
+			// 防止意外,始终保证只有一个定时器
+			clearInterval(elem.timer)
+			elem.timer = setInterval(function () {
+				// 动画运行速率
+				elem.speed = (distance - elem.offsetLeft) / rate
+				// 去除小数点运算,并且正负数时取到正确值
+				elem.speed = elem.speed > 0 ? Math.ceil(elem.speed) : Math.floor(elem.speed)
+				if (elem.offsetLeft == distance) {
+					clearInterval(elem.timer)
+				}
+				elem.style.left = elem.offsetLeft + elem.speed + 'px'
+				// console.log(elem.speed)
+			}, ms)
+		}
+		// animate(div, 20, 600,30)
+		btn1.addEventListener('click', function () {
+			animate(span, 20, 600, 30)
+		})
+		btn2.addEventListener('click', function () {
+			animate(span, 20, 1000, 30)
+		})
+
+	</script>
+</body>
+</html>
