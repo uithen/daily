@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+body {
+    background-image: url(../images/leaves.png);
+}
+.focus {
+    position: relative;
+    width: 640px;
+    height: 426px;
+    margin: 26px auto;
+    cursor: pointer;
+    overflow: hidden;
+}
+.focus img {
+    width: 640px;
+    height: 426px;
+}
+
+.prev,
+.next {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    width: 56px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px;
+    background: rgba(0,0,0,.3);
+}
+.prev {left: -26px; text-indent: 1em;}
+.next {right: -26px; text-indent: -1em;}
+.prev:hover,
+.next:hover {
+    background: rgba(0,0,0,.7);
+}
+
+.circle {
+    position: absolute;
+    bottom: 11px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.circle li {
+    float: left;
+    border: 6px solid #eee;
+    font-size: 0;
+    height: 0;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+.circle li:hover,
+.circle .current {
+    border-color: rgba(24, 139, 168, 0.945);
+}
+.focus ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+}
+.focus ul li {
+    float: left;
+}
