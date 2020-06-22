@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生JS实现图片切换-OOP</title>
+    <link rel="stylesheet" href="styles/showImg.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 图片展示区域 -->
+        <div class="imgShow">
+            <img src="./images/showImg01.jpg" alt="" id="imgData">
+            <input type="button" value="<" id="prev">
+            <input type="button" value=">" id="next">
+            <span id="runNum">1/5</span>
+        </div>
+        <!-- 按钮区域 -->
+        <div class="btns">
+            <input type="button" value="循环" class="circulate">
+            <input type="button" value="非循环" class="acyclic">
+        </div>
+    </div>
+    <script src="./js/showImg.js"></script>
+</body>
+</html>
