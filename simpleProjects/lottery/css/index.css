@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    margin: 93px auto;
+}
+.container .pan img {
+    width: 400px;
+    height: 400px;
+}
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130px;
+    height: 130px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 999;
+}
+.container .btn img {
+    position: absolute;
+    top: -21px;
+    width: 130px;
+}
