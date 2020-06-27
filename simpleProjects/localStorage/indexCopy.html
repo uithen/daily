@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储-实现购物车商品实时同步更新</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="shopping">
+        <h3 style="text-align: center; margin-bottom: 11px;">页面B(对此页面的商品进行修改时会在页面A实时同步)</h3>
+        <table class="product">
+            <tbody>
+                <tr>
+                    <td><img src="images/img1_1.jpg" alt=""></td>
+                    <td>
+                        <p>碗餐具碗餐具碗餐具</p>
+                        <div class="color">
+                            <span data-id="10001">蓝色</span><span data-id="10002">粉色</span><span data-id="10003">红色</span><span data-id="10004">黄色</span>
+                        </div>
+                    </td>
+                    <td>26.00元</td>
+                    <td>
+                        <span>-</span>
+                        <strong>0</strong>
+                        <span>+</span>
+                    </td>
+                    <td><button>加入购物车</button></td>
+                </tr>
+                <tr>
+                    <td><img src="images/img2_1.jpg" alt=""></td>
+                    <td>
+                        <p>背包背包背包背包背包背包</p>
+                        <div class="color">
+                            <span data-id="10005">蓝色</span><span data-id="10006">绿色</span><span data-id="10007">紫色</span>
+                        </div>
+                    </td>
+                    <td>226.00元</td>
+                    <td>
+                        <span>-</span>
+                        <strong>0</strong>
+                        <span>+</span>
+                    </td>
+                    <td><button>加入购物车</button></td>
+                </tr>
+                <tr>
+                    <td><img src="images/img3_1.jpg" alt=""></td>
+                    <td>
+                        <p>帆布鞋帆布鞋</p>
+                        <div class="color">
+                            <span data-id="10011">黑色</span><span data-id="10012">蓝色</span><span data-id="10013">白色</span><span data-id="10014">黄色</span>
+                        </div>
+                    </td>
+                    <td>93.00元</td>
+                    <td>
+                        <span>-</span>
+                        <strong>0</strong>
+                        <span>+</span>
+                    </td>
+                    <td><button>加入购物车</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="selected">
+            <thead>
+                <tr>
+                    <th colspan="6">已选中商品</th>
+                </tr>
+            </thead>
+            <tbody>
+<!--                 <tr>
+                    <td>
+                        <img src="images/shoes_yellow.jpg" alt="">
+                    </td>
+                    <td>
+                        <p>XXXXX</p>
+                    </td>
+                    <td>红色</td>
+                    <td>226.00元</td>
+                    <td>x2</td>
+                    <td><button>删除</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
