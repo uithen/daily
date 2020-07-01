@@ -1,0 +1,117 @@
+
+#date-picker {
+    display: inline-block;
+    /* background: pink; */
+}
+.picker-input {
+    display: inline-block;
+    /* background-color: red; */
+}
+.picker-input .picker-prefix {
+    display: inline-block;
+    width: 25px;
+    height: 40px;
+    background: url(../images/c.png) no-repeat center;
+    /* background-color: red; */
+}
+
+.picker-input input {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    outline: none;
+    color: #606266;
+    vertical-align: top;
+}
+
+.calendar {
+    width: 322px;
+    height: 329px;
+    margin-top: 5px;
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    user-select: none;
+}
+.calendar .header {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.calendar .header > span {
+    vertical-align: middle;
+}
+.calendar .picker-btn {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 3px;
+    /* background-color: pink; */
+    cursor: pointer;
+}
+
+.calendar .picker-btn.picker-prev-year {
+    background: url(../images/dal.png) center;
+    padding:5px;
+}
+.calendar .picker-btn.picker-prev-month {
+    background: url(../images/al.png) center;
+    padding:5px;
+}
+.calendar .picker-btn.picker-next-month {
+    background: url(../images/ar.png) center;
+    padding:5px;
+}
+.calendar .picker-btn.picker-next-year {
+    background: url(../images/dar.png) center;
+    padding:5px;
+}
+
+.calendar .picker-date {
+    margin: 0 40px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.calendar .content {
+    padding: 0 10px 10px;
+    color: #606266;
+}
+.calendar .picker-weeks {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ebeef5;
+}
+
+.calendar .picker-weeks div,
+.calendar .picker-days div {
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px 6px;
+    text-align: center;
+    font-size: 14px;
+}
+.calendar .picker-days div {
+    font-size: 12px;
+    cursor: pointer;
+}
+.calendar .picker-days div:hover {
+    color: #409eff;
+}
+.calendar .picker-days div.other-month {
+    color: #c0c4cc;
+}
+.calendar .picker-days div.is-today {
+    color: #409eff;
+    font-weight: bold;
+    font-size: 16px;
+}
+.calendar .picker-days div.is-select {
+    border-radius: 50%;
+    color: #fff;
+    background-color: #409eff;
+}

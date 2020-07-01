@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生JS-日历</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="date-picker">
+        <!-- <div class="picker-input">
+            <span class="picker-prefix"></span>
+            <input type="text" value="2020-07-31">
+        </div>
+        <div class="calendar">
+            <div class="header">
+                <span class="picker-btn picker-prev-year"></span>
+                <span class="picker-btn picker-prev-month"></span>
+                <span class="picker-date">2020 年 7 月</span>
+                <span class="picker-btn picker-next-month"></span>
+                <span class="picker-btn picker-next-year"></span>
+            </div>
+            <div class="content">
+                <div class="picker-weeks">
+                    <div>日</div>
+                    <div>日</div>
+                    <div>日</div>
+                    <div>日</div>
+                    <div>日</div>
+                    <div>日</div>
+                    <div>日</div>
+                </div>
+                <div class="picker-days">
+                    <div class="other-month ">1</div>
+                    <div class="is-select">2</div>
+                    <div class="is-today">3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                    <div>21</div>
+                    <div>22</div>
+                    <div>23</div>
+                    <div>24</div>
+                    <div>25</div>
+                    <div>26</div>
+                    <div>27</div>
+                    <div>28</div>
+                    <div>29</div>
+                    <div>30</div>
+                    <div>31</div>
+                    <div>32</div>
+                    <div>33</div>
+                    <div>34</div>
+                    <div>35</div>
+                    <div>36</div>
+                    <div>37</div>
+                    <div>38</div>
+                    <div>39</div>
+                    <div>40</div>
+                    <div>41</div>
+                    <div>42</div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="js/index.js"></script>
+    <script>
+        calendar.init({
+            elem: document.querySelector('#date-picker'),
+            getDate(selectedDate) {
+                // 回调接口,保存选择到的日期,如果有后续功能以便操作...
+                console.log(selectedDate)
+            }
+        })
+    </script>
+</body>
+</html>
