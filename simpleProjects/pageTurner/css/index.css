@@ -1,0 +1,50 @@
+.page-turner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 226px;
+}
+.page-turner-wrapper > * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.page-turner-wrapper > li,
+.page-turner-wrapper > span {
+    float: left;
+    margin: 0 5px;
+}
+.page-turner-wrapper > li {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.page-turner-wrapper::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.page-turner-wrapper > li.curPage {
+    background-color: #428bca;
+    color: #fff;
+}
+
+
+.test {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    margin-left: -113px;
+    width: 226px;
+    height: 111px;
+    border: 1px solid #ccc;
+    border-radius: 50% 20%;
+    color: #226;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+}
+.test > div {
+    height: 26px;
+    line-height: 26px;
+}

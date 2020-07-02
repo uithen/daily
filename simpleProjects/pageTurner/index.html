@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生JS-封装翻页器</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="wrapper"></div>
+    <div class="test"></div>
+    <script src="js/index.js"></script>
+    <script>
+        // 模拟伪数据,测试翻页器
+        var testData = []
+        for (var i = 0; i < 101; i++) {
+            testData.push({
+                dataInfo: `test data ${Math.floor(Math.random() * 100 ) * i }`
+            })
+        }
+        // 每页显示数据条数 && 总共需要多少页面 
+        var pageDataSize = 4,
+            totalPage = Math.ceil(testData.length / pageDataSize)
+        var testElem = document.querySelector('.test')
+
+        // 伪数据渲染
+        function renderDom(testData) {
+            testElem.innerHTML = ''
+            testData.forEach(function (item) {
+                var div = document.createElement('div')
+                div.innerHTML = item.dataInfo
+                testElem.appendChild(div)
+            })
+        }
+        
+        renderDom(testData.filter(function(item, index) {
+            return index < pageDataSize
+        }))
+
+        // 翻页器配置入口
+        var pageTurner = new PageTurner({
+            curPage: 2,
+            allPage: totalPage,
+            wrap: document.querySelector('.wrapper'),
+            // 伪数据页面分配回调(测试翻页器每页展示不同数据)
+            turnPageShowData: function (page) {
+                var filterData = testData.filter(function (item, index) {
+                    // page: 1  ===> 0 - 4
+                    //       2  ===> 5 - 9
+                    // ....
+                    return index >= (page - 1) * pageDataSize && index < page * pageDataSize
+                })
+                console.log(filterData)
+                renderDom(filterData)
+            }
+        })
+        pageTurner.init()
+    </script>
+</body>
+</html>
