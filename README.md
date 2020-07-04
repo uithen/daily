@@ -1,35 +1,27 @@
+### 部分Demo效果展示
 
-### 前端学习进度及后续不完全攻克路线(随时更新)
-
- [My Blog](https://github.com/uithen/blog/issues "我的博客")
-
-- [x] HTML
-- [x] CSS
-- [x] JavaScript（loading...）
-- [ ] JQuery
-- [ ] Node.js与模块化
-- [ ] 一门主流前端框架
-- [ ] 一门后端语言
-
-
-    深知以上打钩部分并非精通,而是初步掌握该门技术
-
-#### 部分Demo效果展示
+**[My Blog](https://github.com/uithen/blog/issues "我的博客")**
 
 由于Demo都是部署在github服务器上,国内访问页面~~可能~~会出现加载不全或慢的情况,请尝试刷新稍作等待
 
 
-##### HTML/CSS
+#### HTML/CSS
 - [静态页面一](https://uithen.github.io/daily/staticPages/page1/)
 - [静态页面二](https://uithen.github.io/daily/staticPages/page3/)
 - [静态页面三](https://uithen.github.io/daily/staticPages/page4/)
-- [CSS3旋转立方体](https://uithen.github.io/daily/animation/rotatingCube)
 - [CSS计数器](https://uithen.github.io/daily/CSSCounter/selected)
-- [CSS3蓝天白云](https://uithen.github.io/daily/animation/bluesky)
 - [CSS3相册](https://uithen.github.io/daily/simpleProjects/slidingImagePanels/)
+- [CSS3蓝天白云](https://uithen.github.io/daily/animation/bluesky)
+- [CSS3旋转立方体](https://uithen.github.io/daily/animation/rotatingCube)
 
 ---
 
-##### JavaScript
-- [简易ATM](https://uithen.github.io/daily/snippets/simpleATM)
-- [猜数字](https://uithen.github.io/daily/snippets/guessNum)
+#### 原生JS系列
+- [轮播](https://uithen.github.io/daily/simpleProjects/carousel/)
+- [日历](https://uithen.github.io/daily/simpleProjects/calendar/)
+- [复选框](https://uithen.github.io/daily/simpleProjects/checkbox/)
+- [翻页器](https://uithen.github.io/daily/simpleProjects/pageTurner/)
+- [todo list](https://uithen.github.io/daily/simpleProjects/todolist/)
+- [歌词滚动](https://uithen.github.io/daily/simpleProjects/rollingLRC/)
+- [转盘抽奖](https://uithen.github.io/daily/simpleProjects/lottery/)
+- [使用本地存储购实现物车商品实时刷新](https://uithen.github.io/daily/simpleProjects/localStorage/)
