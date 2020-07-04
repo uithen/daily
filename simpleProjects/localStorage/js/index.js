@@ -4,7 +4,8 @@
 
     // 更新现有的本地存储数据
     function init() {
-        selectedData = JSON.parse(localStorage.getItem('cart'))
+        selectedData = JSON.parse(localStorage.getItem('cart')) || {}
+        console.log(selectedData)
         createSelectedDom()
     }
     init()
