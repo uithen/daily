@@ -24,4 +24,6 @@
 - [todo list](https://uithen.github.io/daily/simpleProjects/todolist/)
 - [歌词滚动](https://uithen.github.io/daily/simpleProjects/rollingLRC/)
 - [转盘抽奖](https://uithen.github.io/daily/simpleProjects/lottery/)
-- [使用本地存储购实现物车商品实时刷新](https://uithen.github.io/daily/simpleProjects/localStorage/)
+- 使用本地存储购实现物车商品实时刷新
+    -   [页面A](https://uithen.github.io/daily/simpleProjects/localStorage/index.html)
+    -   [页面B](https://uithen.github.io/daily/simpleProjects/localStorage/indexCopy.html)
