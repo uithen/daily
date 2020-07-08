@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件传播流程</title>
+    <style>
+        .box {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            transition: all .5s;
+            border-radius:50%;
+            background: #fff;
+            box-sizing:border-box;
+        }
+        #box0 {
+            width:500px;
+            height:500px;
+            border:1px solid #9cc;
+        }
+        #box1 {
+            width:400px;
+            height:400px;
+            border:1px solid #fcc;
+        }
+        #box2 {
+            width:300px;
+            height:300px;
+            border:1px solid #f96;
+        }
+        #box3 {
+            width:200px;
+            height:200px;
+            border:1px solid pink;
+            line-height:200px;
+            text-align:center;
+            font-size:26px;
+            cursor:pointer;
+        }
+        #box0.active {
+            background: #9cc;
+        }
+        #box1.active {
+            background: #fcc;
+        }
+        #box2.active {
+            background: #f96;
+        }
+        #box3.active {
+            background: pink;
+        }
+        
+        #tit {
+            position:absolute;
+            top:50%;
+            left:2%;
+            height:50px;
+            width:333px;
+            padding:auto 10px;
+            color:#fff;
+            font-size:20px;
+            text-align:center;
+            line-height:50px;
+            background: #c33;
+        }
+    </style>
+</head>
+<body>
+    <div id="tit">单击右侧圆心查看事件流传播过程</div>
+
+    <div id="box0" class="box">
+        <div id="box1" class="box">
+            <div id="box2" class="box">
+                <div id="box3" class="box">
+                   <div>click me</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var interval = 1500,
+            curCls = 'active',
+            tit = document.querySelector('#tit'),
+            boxes = document.querySelectorAll('.box');
+
+        for(var i = 0; i < boxes.length; i++) {
+            var temp = document.getElementById('box'+i);
+            temp.addEventListener('click', tab, true);
+            temp.addEventListener('click', tab, false);
+        }
+
+        function tab() {
+            // 自定义event.out属性,该属性首次值为undefined,第二轮开始为out+=2000
+            var ms = event.out = (event.out + interval) || 0;
+            var target = event.currentTarget;
+            var msg = (event.eventPhase == 1 ? '当前事件流执行到捕获阶段：' : '当前事件流执行到冒泡阶段：') + target.attributes['id'].value;
+
+            setTimeout(function() {
+                tit.innerHTML = msg;
+                console.log(msg);
+                target.classList.add(curCls);
+                setTimeout(function() {
+                    target.classList.remove(curCls);
+                }, interval);
+            }, ms);
+        }
+    </script>
+</body>
+</html>
