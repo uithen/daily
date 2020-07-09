@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal组件</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <style>
+        body {
+            background-color: #aaa;
+        }
+        .u-trigger{
+            display: block;
+            width: 120px;
+            height: 32px;
+            font-size: 16px;
+            margin: 60px auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="m-modal">
+        <div class="modal_align"></div>
+        <div class="modal_wrap">
+            <div class="modal_head">标题</div>
+            <div class="modal_body">内容</div>
+            <div class="modal_foot">
+                <a href="#" class="confirm">确认</a>
+                <a href="#" class="cancel">取消</a>
+            </div>
+        </div>
+    </div> -->
+
+    <button class="u-trigger">Show Modal</button>
+
+    <script src="js/emitter.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/modal.js"></script>
+
+    <script>
+        // 初始化Modal组件
+        var modal = new Modal({
+            // 1. 内容配置
+            content: '自定义内容',  // 可传入节点和字符串
+            // 2. 优化:动画设置(此次是引入的第三方动画库,animate.css)
+            animation: {
+                enter: 'bounceInUp',
+                leave: 'bounceOutDown'
+            },
+            // 3. 确认与取消按钮回调,以便开发者对后续逻辑的处理
+            // onConfirm() {
+            //     console.log('确认')
+            // },
+            // onCancel() {
+            //     console.log('取消')
+            // }
+        })
+
+        // 优化2: 改用自定义事件系统监听,而不是像上面那样在内部定义
+		modal.on('confirm', function() {
+			console.log('confirm...')
+		})
+		modal.on('confirm', function() {
+			console.log('并且支持多回调逻辑')
+		})
+
+		modal.on('cancel', function() {
+			console.log('cancel...')
+		})
+
+
+        document.querySelector('.u-trigger').addEventListener('click', function () {
+            modal.show('<h4>Modal组件内容配置区</h4>')
+        })
+        console.log(modal)
+    </script>
+</body>
+</html>
