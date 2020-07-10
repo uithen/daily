@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>单例模式实践</title>
+	</head>
+	<style>
+		/* 登录窗口 */
+		#loginLayer {
+			position: absolute;
+			left: 240px;
+			top: 80px;
+			width: 226px;
+			height: 127px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			text-align: center;
+			z-index: 1;
+		}
+
+		/* 遮罩层  */
+		#maskLayer {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 100px;
+			background-color: #000;
+			opacity: 0.3;
+		}
+	</style>
+
+	<body>
+		<button id="loginBtn">登录</button>
+		<!-- <div id="loginLayer">弹窗区域</div>
+    <div id="maskLayer"></div> -->
+		<script>
+			// 专门负责创建结构的函数
+			function createLoginLayer() {
+				var loginLayer = document.createElement('div')
+				loginLayer.id = 'loginLayer'
+				loginLayer.innerHTML = '登录窗口'
+				loginLayer.style.display = 'none'
+				document.body.appendChild(loginLayer)
+				return loginLayer
+			}
+			function createMaskLayer() {
+				var maskLayer = document.createElement('div')
+				maskLayer.id = 'maskLayer'
+				maskLayer.style.display = 'none'
+				document.body.appendChild(maskLayer)
+				return maskLayer
+			}
+
+			// 保证单例的函数
+			function getSingleton(fn) {
+				var instance = null
+				return function () {
+					// return instance || (instance = fn());
+					// 如果在功能上有更多需求,希望调用getSingleton()之后返回的函数可以传递参数,可以向下面这样写,也就是说这样fn也可以接收参数了
+					return instance || (instance = fn.apply(null, arguments))
+				}
+			}
+
+			// 生成单一节点
+			var createSingletonLoginLayer = getSingleton(createLoginLayer)
+			var createSingletonMaskLayer = getSingleton(createMaskLayer)
+
+			document
+				.querySelector('#loginBtn')
+				.addEventListener('click', function (e) {
+					var loginLayer = createSingletonLoginLayer()
+					loginLayer.style.display = 'block'
+
+					var maskLayer = createSingletonMaskLayer()
+					maskLayer.style.display = 'block'
+				})
+		</script>
+	</body>
+</html>
