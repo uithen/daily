@@ -27,3 +27,7 @@
 - 使用本地存储购实现物车商品实时刷新
     -   [页面A](https://uithen.github.io/daily/simpleProjects/localStorage/index.html)
     -   [页面B](https://uithen.github.io/daily/simpleProjects/localStorage/indexCopy.html)
+
+#### 组件实践
+- [Modal](https://uithen.github.io/daily/Components/Modal/)
+- [Slider](https://uithen.github.io/daily/Components/Slider/)
