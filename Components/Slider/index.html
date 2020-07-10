@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Slider轮播组件</title>
+		<link rel="stylesheet" href="css/slider.css" />
+	</head>
+	<body>
+		<!-- <div class="m-slider">
+        <div class="slide"><img src="images/pic01.jpg" alt=""></div>
+        <div class="slide"><img src="images/pic02.jpg" alt=""></div>
+        <div class="slide"><img src="images/pic03.jpg" alt=""></div>
+    </div> -->
+
+		<!-- 轮播下标控制器,由于该结构可变性非常高,为了可扩展性,此处没有写进slider组件而是抽离出来 -->
+		<ul class="m-cursor">
+			<li class="prev"><</li>
+			<li class="cursor">1</li>
+			<li class="cursor">2</li>
+			<li class="cursor">3</li>
+			<li class="cursor">4</li>
+			<li class="cursor">5</li>
+			<li class="next">></li>
+		</ul>
+
+		<script src="js/util.js"></script>
+		<script src="js/slider.js"></script>
+		<script>
+			var $ = function (selector) {
+				return [].slice.call(document.querySelectorAll(selector))
+			}
+
+			var cursors = $('.m-cursor .cursor')
+			var prev = $('.m-cursor .prev')[0]
+			var next = $('.m-cursor .next')[0]
+            // 下标控制
+			cursors.forEach(function (cursor, index) {
+				cursor.addEventListener('click', function () {
+					slider.nav(index)
+				})
+			})
+
+			prev.addEventListener('click', function () {
+				slider.prev()
+			})
+			next.addEventListener('click', function () {
+				slider.next()
+            })
+            
+			// 初始化
+			var slider = new Slider({
+				// 配置视口容器
+				container: document.body,
+				// 图片列表,可添加任意张图片
+				images: [
+					'images/pic01.jpg',
+					'images/pic02.jpg',
+					'images/pic03.jpg',
+					'images/pic04.jpg',
+					'images/pic05.jpg',
+				],
+				// 当前页
+				pageIndex: 2,
+				// 是否允许拖拽
+				drag: true
+            })
+            
+			// 通过监听`nav`事件来完成额外逻辑
+			slider.on('nav', function (ev) {
+				var pageIndex = ev.pageIndex
+
+				cursors.forEach(function (cursor, index) {
+					if (index === pageIndex) {
+						cursor.className = 'z-active'
+					} else {
+						cursor.className = ''
+					}
+				})
+			})
+
+			// 自动轮播
+			setInterval(function () {
+				// 下一页
+				slider.next();
+			}, 2600)
+
+			// 最初时显示为第二页
+			slider.nav(2)
+		</script>
+	</body>
+</html>
