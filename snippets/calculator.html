@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器(多次优化)</title>
+    <style>
+		body {background: #eee;}
+		#calculator {width:800px;height:400px;margin:150px auto;text-align:center;}
+		#calculator > div {margin-bottom:30px;}
+		span,input {padding:5px;}
+		input[type=button] {width:35px; height:35px;font-size:17px;}
+	</style>
+</head>
+<body>
+    <div id="calculator">
+		<div>
+			<input class="formerValue" value="" placeholder="请在此处输入有效的数字"></input>
+			<span class="sign">+</span>
+			<input class="laterValue" value="" placeholder="请在此处输入有效的数字"></input>
+			<span>=</span>
+			<span class="result"></span>
+		</div>
+    <!-- <div class="operator">
+			<input type="button" onclick="addHandlers()" value="+" title="add">
+			<input type="button" onclick="subtractHandlers()" value="-" title="subtract">
+			<input type="button" onclick="multiplyHandlers()" value="×" title="multiply">
+			<input type="button" onclick="divideHandlers()" value="÷" title="divide">
+		</div> -->
+		<div class="operator">
+			<input type="button" value="+" title="add">
+			<input type="button" value="-" title="subtract">
+			<input type="button" value="×" title="multiply">
+			<input type="button" value="÷" title="divide">
+			<input type="button" value="%" title="mod">
+			<input type="button" value="^" title="power">
+			<input type="button" value="1/x" title="invert">
+			</div>
+        </div>
+        <script>
+// 从一个简易计算器学习编程思想(此篇用作学习,可读性贼差,望理解)
+
+
+
+    // var wrapElem = document.querySelector('#calculator'),
+    // 	formerValue = wrapElem.querySelector('.formerValue'),
+    // 	sign = wrapElem.querySelector('.sign'),
+    // 	laterValue = wrapElem.querySelector('.laterValue'),
+    // 	result = wrapElem.querySelector('.result'),
+    // 	btns = wrapElem.querySelectorAll('input[type=button]');
+
+
+// version 1.0 上古实现,使用句柄方式在结构上调用
+
+
+    // function addHandlers() {
+    // 	sign.innerHTML = '+';
+    // 	result.innerHTML = +formerValue.value + +laterValue.value;
+    // }
+    // function subtractHandlers() {
+    // 	sign.innerHTML = '-';
+    // 	result.innerHTML = formerValue.value - laterValue.value;
+    // }
+    // function multiplyHandlers() {
+    // 	sign.innerHTML = '×';
+    // 	result.innerHTML = formerValue.value * laterValue.value;
+    // }
+    // function divideHandlers() {
+    // 	sign.innerHTML = '÷';
+    // 	result.innerHTML = formerValue.value / laterValue.value;
+    // }
+    
+    
+// version 2.0 结构与行为分离
+
+
+    // btns[0].onclick = addHandlers;
+    // btns[1].onclick = subtractHandlers;
+    // btns[2].onclick = multiplyHandlers;
+    // btns[3].onclick = divideHandlers;	
+    
+    
+// version 3.0 使用循环
+
+
+    // for(var i = 0; i < btns.length; i++) {
+    // 	btns[i].onclick = function() {
+    // 		switch(this.title) {
+    // 			case 'add' : addHandlers();
+    // 			break;
+    // 			case 'subtract' : subtractHandlers();
+    // 			break;
+    // 			case 'multiply' : multiplyHandlers();
+    // 			break;
+    // 			case 'divide' : divideHandlers();
+    // 			break;
+    // 		}
+    // 	}
+    // }	
+
+    
+// version 4.0 提取函数(一个函数只做一件事)
+
+
+    // // 提取获取相应运算符号的函数
+    // function updateSign(symbol) {
+    // 	sign.innerHTML = symbol;
+    // }
+    
+    // // 提取相应运算的函数(加减乘除)
+    // function add(n1, n2) {
+    // 	return +n1 + +n2;
+    // }
+    // function subtract(n1, n2) {
+    // 	return n1 - n2;
+    // }
+    // function multiply(n1, n2) {
+    // 	return n1 * n2;
+    // }
+    // function divide(n1, n2) {
+    // 	return n1 / n2;
+    // }
+
+    // // 提取接收运算结果的函数
+    // function resultOutput(output) {
+    // 	result.innerHTML = output;
+    // }
+
+    // // 将循环封装成一个函数,接收两个参数,运算符及一个回调函数,每循环一次,执行一次回调函数
+    // function each(arr, fn) {
+    // 	for(var i = 0; i < arr.length; i++) {
+    // 		fn(i, arr[i]);
+    // 	}
+    // }
+
+    // each(btns, function(index, elem) {
+    // 	elem.onclick = function() {
+    // 		switch(this.title) {
+    // 			case 'add' : addHandlers();
+    // 			break;
+    // 			case 'subtract' : subtractHandlers();
+    // 			break;
+    // 			case 'multiply' : multiplyHandlers();
+    // 			break;
+    // 			case 'divide' : divideHandlers();
+    // 			break;
+    // 		}
+    // 	}
+    // });
+
+    // function addHandlers() {
+    // 	updateSign('+');
+    // 	resultOutput(add(formerValue.value, laterValue.value));
+    // }
+    // function subtractHandlers() {
+    // 	updateSign('-');
+    // 	resultOutput(subtract(formerValue.value, laterValue.value));
+    // }
+    // function multiplyHandlers() {
+    // 	updateSign('×');
+    // 	resultOutput(multiply(formerValue.value, laterValue.value));
+    // }
+    // function divideHandlers() {
+    // 	updateSign('÷');
+    // 	resultOutput(divide(formerValue.value, laterValue.value));
+    // }
+    
+
+// version 5.0 管理代码(找到组织)
+
+
+		// 将所有全局变量封装到一个对象里
+		// var wrapElem = document.querySelector('#calculator');
+		// var calculator = {
+		// 	formerValue : wrapElem.querySelector('.formerValue'),
+		// 	sign : wrapElem.querySelector('.sign'),
+		// 	laterValue : wrapElem.querySelector('.laterValue'),
+		// 	result : wrapElem.querySelector('.result'),
+		// 	btns : wrapElem.querySelectorAll('input[type=button]')
+		// }
+
+
+		// // 提取获取相应运算符号的函数
+		// function updateSign(symbol) {
+		// 	calculator.sign.innerHTML = symbol;
+		// }
+		
+		// // 将进行运算的函数封装到一个对象
+		// var operation = {
+		// 	add : function(n1, n2) {
+		// 		return +n1 + +n2;
+		// 	},
+		// 	subtract : function(n1, n2) {
+		// 		return n1 - n2;
+		// 	},
+		// 	multiply : function(n1, n2) {
+		// 		return n1 * n2;
+		// 	},
+		// 	divide : function(n1, n2) {
+		// 		return n1 / n2;
+		// 	}		
+		// }
+
+		// // 提取接收运算结果的函数
+		// function resultOutput(output) {
+		// 	calculator.result.innerHTML = output;
+		// }
+
+		// // 将循环封装成一个函数,接收两个参数,运算符及一个回调函数,每循环一次,执行一次回调函数
+		// function each(arr, fn) {
+		// 	for(var i = 0; i < arr.length; i++) {
+		// 		fn(i, arr[i]);
+		// 	}
+		// }
+
+		// each(calculator.btns, function(index, elem) {
+		// 	elem.onclick = function() {
+		// 		switch(this.title) {
+		// 			case 'add' : addHandlers();
+		// 			break;
+		// 			case 'subtract' : subtractHandlers();
+		// 			break;
+		// 			case 'multiply' : multiplyHandlers();
+		// 			break;
+		// 			case 'divide' : divideHandlers();
+		// 			break;
+		// 		}
+		// 	}
+		// });
+
+		// function addHandlers() {
+		// 	updateSign('+');
+		// 	resultOutput(operation.add(calculator.formerValue.value, calculator.laterValue.value));
+		// }
+		// function subtractHandlers() {
+		// 	updateSign('-');
+		// 	resultOutput(operation.subtract(calculator.formerValue.value, calculator.laterValue.value));
+		// }
+		// function multiplyHandlers() {
+		// 	updateSign('×');
+		// 	resultOutput(operation.multiply(calculator.formerValue.value, calculator.laterValue.value));
+		// }
+		// function divideHandlers() {
+		// 	updateSign('÷');
+		// 	resultOutput(operation.divide(calculator.formerValue.value, calculator.laterValue.value));
+        // }
+        
+
+
+// version 6.0 OCP开放-封闭原则(添加功能开放,修改代码封闭)
+		// 6.0优化说明	如果我想在现有基础上添加新的运算功能,同时又不会深入到代码内部进行修改以防'破坏'原代码
+		// 6.0优化补充 不必关心内部代码细节,只提供可直接调用接口添加新的运算功能
+        
+        
+		// 提取获取相应运算符号的函数
+		// function updateSign(symbol) {
+		// 	calculator.sign.innerHTML = symbol;
+		// }
+		
+		// // 将进行运算的函数封装到一个对象
+		// // 每次添加新功能都必须深入代码修改,使用OCP原则,添加一个开放功能的接口,后续操作使用接口完成
+		// var operation = {
+		// 	add : function(n1, n2) {
+		// 		return +n1 + +n2;
+		// 	},
+		// 	subtract : function(n1, n2) {
+		// 		return n1 - n2;
+		// 	},
+		// 	multiply : function(n1, n2) {
+		// 		return n1 * n2;
+		// 	},
+		// 	divide : function(n1, n2) {
+		// 		return n1 / n2;
+		// 	},
+		// 	addOperation : function(name, fn) {
+		// 		if(!this[name]) {
+		// 			this[name] = fn;
+		// 		}
+		// 		// 链式调用
+		// 		return this;
+		// 	}
+
+		// }
+
+		// // operation.mod(function(){...})在全局下这样添加其实也不是不可以,但是如果你添加了一个跟operation里面重名的函数,则会覆盖原有的
+		// operation.addOperation('mod',function(n1, n2) {
+		// 	return n1 % n2;
+		// }).addOperation('power', function(base, power) {
+		// 	return 1/base;
+		// })
+
+		// function operate(operator, n1, n2) {
+		// 	if(!operation[operator]) throw new Error('不存在名为' + operator + '的运算方法!');
+		// 	// if(operation[operator]) return;
+		// 	return operation[operator](n1, n2);
+		// }
+
+		// // 提取接收运算结果的函数
+		// function resultOutput(output) {
+		// 	calculator.result.innerHTML = output;
+		// }
+
+		// // 将循环封装成一个函数,接收两个参数,运算符及一个回调函数,每循环一次,执行一次回调函数
+		// function each(arr, fn) {
+		// 	for(var i = 0; i < arr.length; i++) {
+		// 		fn(i, arr[i]);
+		// 	}
+		// }
+
+		// 干掉switch语句---如果我想添加取模功能就不得不在switch下另起一个case,一个科学计算器,运算符有几百个,总不可能写几百个case,效率低下先不说,首先每次作修改都要进入到switch里,极有可能会把里面的代码打乱从而出现系统功能溃散,此时为了代码的健壮性和可扩展性,可以封装一个代替switch的函数,把它当做一个黑匣子,黑匣子里面是啥我们可以不关心(忽略细节),在函数里提供一个接口,后续修改只需在接口上进行(OCP原则)
+		// each(calculator.btns, function(index, elem) {
+		// 	elem.onclick = function() {
+		// 		updateSign(this.value);
+		// 		resultOutput(operate(this.title, calculator.formerValue.value, calculator.laterValue.value));
+		// 	}
+        // });
+        
+
+// version 7.0 模块化
+
+
+		// 例如这是一个成型的网站,那么这个计算器可以把它当做成整个网站的一个小整体,也就是一个模块.
+		// 所有的变量函数都暴露在全局,在不想污染全局作用域情况下,既能执行又和外面的代码互不影响,那就只有局部作用域了,也就是扔到函数里.当匿名函数执行完毕,局部作用域销毁,所有变量被释放.这就形成了一个小模块.但目前并没有往外暴露接口
+
+		(function() {
+		var wrapElem = document.querySelector('#calculator');
+		var calculator = {
+			formerValue : wrapElem.querySelector('.formerValue'),
+			sign : wrapElem.querySelector('.sign'),
+			laterValue : wrapElem.querySelector('.laterValue'),
+			result : wrapElem.querySelector('.result'),
+			btns : wrapElem.querySelectorAll('input[type=button]')
+		}
+
+
+		// 提取获取相应运算符号的函数
+		function updateSign(symbol) {
+			calculator.sign.innerHTML = symbol;
+		}
+
+		// 这两部分都是提供运算的,可以看成一个小模块,里面代码细节可以不考虑,直接暴露接口在外面使用就好了
+		// 也就是目前我这个小模块对外而言是不可见的,但是我提供了一个接口供外面使用
+		var operate = (function() {
+				// 正常运算都是两个数,所以这里传入了两个参数,可是,如果我要对一个数求倒数,或者三个数求其它运算,那么这里就不应该明确参数的个数
+				function operate(operator) {
+					if(!operation[operator]) throw new Error('不存在名为' + operator + '的运算方法!');
+					// if(operation[operator]) return;
+					// 使用apply使传参可以以数组传入,使用call把第一个参数operator截掉以便正常运算
+					return operation[operator].apply(operation, [].slice.call(arguments,1,arguments.length));
+				}
+				var operation = {
+					add : function(n1, n2) {
+						return +n1 + +n2;
+					},
+					subtract : function(n1, n2) {
+						return n1 - n2;
+					},
+					multiply : function(n1, n2) {
+						return n1 * n2;
+					},
+					divide : function(n1, n2) {
+						return n1 / n2;
+					},
+					addOperation : function(name, fn) {
+						if(!operation[name]) {
+							operation[name] = fn;
+						}
+						// 链式调用
+						return this;
+					}
+				}
+				// 把operation的方法与operate指向同一个(暴露接口)
+				operate.addOperation = operation.addOperation;
+				// 返回operate,以便全局访问(暴露接口)
+                return operate;
+            
+            })();
+            
+		// operation.mod(function(){...})在全局下这样添加其实也不是不可以,但是如果你添加了一个跟operation里面重名的函数,则会覆盖原有的
+		operate.addOperation('mod',function(n1, n2) {
+			return n1 % n2;
+		}).addOperation('power', function(base, power) {
+			return Math.pow(base, power);
+		}).addOperation('invert', function(num) {
+			return 1/num;
+		});
+
+		// 提取接收运算结果的函数
+		function resultOutput(output) {
+			calculator.result.innerHTML = output;
+		}
+
+		// 将循环封装成一个函数,接收两个参数,运算符及一个回调函数,每循环一次,执行一次回调函数
+		function each(arr, fn) {
+			for(var i = 0; i < arr.length; i++) {
+				fn(i, arr[i]);
+			}
+		}
+
+		each(calculator.btns, function(index, elem) {
+			elem.onclick = function() {
+				updateSign(this.value);
+				resultOutput(operate(this.title, calculator.formerValue.value, calculator.laterValue.value));
+			}
+        });
+    
+        })();
+
+        
+// version7.0+ 还有许多待优化...
+		//	目前输入框目前只支持纯数值,这时就可以对输入框进行验证,这个表单的验证同时又可以封装成一个独立的模块,提供一个借口供使用,这样一来就可以对所有表单类型的作验证.
+		// 目前只能通过鼠标单击实现运算,这会儿就可以用到键盘监听事件
+		// 目前此计算机只进行很少的运算,如果是一个科学计算器,这里可能有几百个运算,使用for的话效率就非常低,这时就可以考虑事件代理
+        
+        </script>
+</body>
+</html>
