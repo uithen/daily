@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原生JS瀑布流式布局</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div class="item-wrapper">
+    <!-- <div class="item-column">
+      <div class="item">
+        <div class="item-info">
+          <div class="item-img">
+            <img src="./images/poster.jpg" alt="">
+            <i class="video"></i>
+          </div>
+          <h3 class="info">一不小心养出两只灵魂小吃货</h3>
+        </div>
+        <div class="item-append">
+          <div class="user"></div>
+          <div class="avatar">
+            <img src="./images/avatar.jpg" alt="">
+            <i class="verified"></i>
+          </div>
+          <div class="name">zayne</div>
+          <div class="like">
+            <i class="heart"></i>
+            <span class="likes">26</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item-column"></div>
+    <div class="item-column"></div>
+    <div class="item-column"></div>
+    <div class="item-column"></div>
+    <div class="more">查看更多</div> -->
+  </div>
+  <script src="./js/data.js"></script>
+  <script src="./js/getData.js"></script>
+  <script src="./js/index.js"></script>
+  <script>
+    waterfall.init({
+      el: document.querySelector('.item-wrapper'),
+    })
+  </script>
+</body>
+</html>
