@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 600px;
+    }
+    th {background-color: #eee;}
+    th,td {
+      border: 1px solid #ccc;
+      padding: 17px;
+    }
+    span {
+      width: 26px;
+      display: inline-block;
+      text-align: center;
+    }
+    .total {
+      width: 605px;
+      text-align: right;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div v-if="books.length !== 0">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in books">
+            <td>{{index + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.date}}</td>
+            <!-- 1. 由于总价也是¥XX.00的格式,所以这样拼接的形式达不到复用 -->
+            <!-- <td>{{'¥' + item.price.toFixed(2)}}</td> -->
+            <!-- 2. 可以在methods里定义一个方法return '¥' + item.price.toFixed(2)  -->
+            <!-- <td>{{getFinalPrice(item.price)}}</td> -->
+            <!-- 3. 但最好的方式还是用Vue提供的过滤器,语法: 参数 | 过滤器 -->
+            <td>{{item.price | showPrice}}</td>
+            <td>
+              <button @click=decrement(index) :disabled="item.count <= 1">-</button>
+              <span>{{item.count}}</span>
+              <button @click=increment(index)>+</button>
+            </td>
+            <td><button @click="removeHandle(index)">移除</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total">总价：{{totalPrice | showPrice}}</div>
+    </div>
+    <h2 v-else>购物车为空</h2>
+  </div>
+  <script src="./vue.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+					{
+						name: '《算法导论》',
+						date: '2006-09',
+						price: 85.00,
+						count: 1
+					},
+					{
+						name: '《UNIX编程艺术》',
+						date: '2006-02',
+						price: 59.00,
+						count: 1
+					},
+					{
+						name: '《编程珠玑》',
+						date: '2008-10',
+						price: 39.00,
+						count: 1
+					},
+					{
+						name: '《代码大全》',
+						date: '2006-03',
+						price: 126.00,
+						count: 1
+					},
+				]
+      },
+      methods: {
+        getFinalPrice(price) {
+          return `¥${price.toFixed(2)}`
+        },
+        increment(index) {
+          this.books[index].count++
+        },
+        decrement(index) {
+          this.books[index].count-- 
+        },
+        removeHandle(index) {
+          this.books.splice(index, 1)
+        }
+      },
+      computed: {
+        totalPrice() {
+          return this.books.reduce(
+                   (acc, cur) => acc + cur.price * cur.count,
+                   0 
+                 )
+          // let totalPrice = 0
+          // for (let v of this.books) {
+          //   totalPrice += v.price * v.count
+          // }
+          // return totalPrice
+        }
+      },
+      filters: {
+        showPrice(price) {
+          // return '¥' + price.toFixed(2)
+          return `¥${price.toFixed(2)}`
+        }
+      }
+    })
+  </script>
+</body>
+</html>
