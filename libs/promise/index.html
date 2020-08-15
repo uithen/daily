@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义promise测试页</title>
+</head>
+<body>
+  <script src="./Promise.js"></script>
+  <script>
+    const p1 = Promise.resolve(2)
+    const p2 = Promise.resolve(Promise.resolve(3))
+    const p3 = Promise.resolve(Promise.reject(4))
+    const p4 = Promise.resolve(new Promise(resolve => {
+      setTimeout(() => {
+        resolve(5)
+      }, 100)
+    }))
+  </script>
+</body>
+</html>
