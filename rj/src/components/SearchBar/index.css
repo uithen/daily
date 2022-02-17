@@ -1,0 +1,13 @@
+.searchBar input {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 26px;
+    text-indent: 1em;
+}
+.searchBar input:focus {
+    border-color: pink;
+}

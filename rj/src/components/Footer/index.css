@@ -1,0 +1,12 @@
+.operArea {
+    display: flex;
+    justify-content: space-between;
+}
+.operArea button {
+    color: #fff;
+    background-color: pink;
+    outline: 1px solid #eee;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}

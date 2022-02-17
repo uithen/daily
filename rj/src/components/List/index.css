@@ -1,0 +1,30 @@
+.todo_list {
+    list-style: none;
+    margin-top: 11px;
+    width: 100%;
+    height: 126px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+    overflow: auto;
+}
+.todo_list .list_item {
+    position: relative;
+    height: 26px;
+    font-size: 12px;
+    line-height: 26px;
+    padding-left: 10px;
+    /* background-color: #eee; */
+    border-bottom: 1px solid #ddd;
+}
+.list_item button {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: #fff;
+    background-color: pink;
+    outline: 1px solid #eee;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
