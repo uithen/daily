@@ -1,96 +1,25 @@
-import React from 'react'
-import SearchBar from './components/SearchBar'
-import List from './components/List'
-import Footer from './components/Footer'
-import './App.css'
+import React, { memo } from 'react'
 
-class App extends React.Component {
-  state = {
-    todos: [
-      {id: '1', name: 'xxx', done: false},
-      {id: '2', name: 'yyy', done: true},
-      {id: '3', name: 'aaa', done: false},
-      {id: '4', name: 'bbb', done: false},
-    ],
-    filterText: ''
+const App = memo(() => {
+  const getStudent = async () => {
+    // 所处协议、主机和端口一致，则这三个可省略
+    // const res = await fetch('http://localhost:3000/api1/students')
+    const res = await fetch('/api1/students')
+    const data = await res.json()
+    console.log('student data', data)
   }
-  // search todo 
-  handleFilterText = (filterText) => {
-    this.setState({filterText})
-  }
-  // add todo
-  addTodo = (todo) => {
-    this.setState({
-      todos: [todo, ...this.state.todos]
-    })
-  }
-  // del todo
-  delTodo = (todoId) => {
-    this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== todoId)
-    })
-  }
-  // update todo
-  updateTodo = (todoId, checked) => {
-    const {todos} = this.state 
-    const newTodos = todos.map(todo => {
-      if (todo.id === todoId) {
-        // todo.done = checked 
-        // return todo
-        return {...todo, done: checked}
-      }
-      return todo
-    })
-    this.setState({
-      todos: newTodos
-    })
-  }
+  const getCar = async () => { 
+    const res = await fetch('/api2/cars')
+    const data = await res.json()
+    console.log('car data', data)
+   }
 
-  // checked or not checked all 
-  checkedAll = (checked) => {
-    const newTodos = this.state.todos.map(todo => {
-      // todo.done = checked ? true : false 
-      // return todo
-      return {...todo, done: checked ? true : false}
-    })
-    this.setState({
-      todos: newTodos
-    })
-  }
-
-  // clear all done
-  clearAllDone = () => {
-    const newTodos = this.state.todos.filter(todo => {
-      return !todo.done 
-    })
-    this.setState({
-      todos: newTodos
-    })
-  }
-
-  render() {
-    const {todos, filterText} = this.state
-    return (
-      <div className='todo_wrapper'>
-        <SearchBar
-          todos={todos}
-          handleFilterText={this.handleFilterText}
-          addTodo={this.addTodo}
-        />
-        <List
-          todos={todos}
-          filterText={filterText} 
-          delTodo={this.delTodo}
-          updateTodo={this.updateTodo}
-        />
-        <Footer
-          todos={todos} 
-          checkedAll={this.checkedAll} 
-          clearAllDone={this.clearAllDone}
-        />
-      </div>
-    )
-  }
-}
+  return (
+    <div>
+      <button onClick={getStudent}>getStudent</button>
+      <button onClick={getCar}>getCar</button>
+    </div>
+  )
+})
 
 export default App
